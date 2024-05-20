@@ -8,19 +8,15 @@ import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
-@Entity(name = "user")
+@Entity(name = "favouritebook")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-public class User {
+public class FavouriteBook {
     @Id
-    private String userId;
-    private String password;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
-    private FavouriteBook favouriteBookList;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
     @OneToMany(mappedBy = "isbn", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Book> createdBook;
-    private String roles;
+    private Set<Book> favouriteBookSet;
 }
