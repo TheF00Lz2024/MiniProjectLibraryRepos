@@ -18,7 +18,7 @@ public class User {
     private String userId;
     private String password;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "favouriteBookId")
     private FavouriteBook favouriteBookList;
     @OneToMany(mappedBy = "isbn", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Book> createdBook;

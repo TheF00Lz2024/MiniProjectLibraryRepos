@@ -16,7 +16,8 @@ import java.util.Set;
 public class FavouriteBook {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
+    @Column(name = "favourite_book_id")
+    private int favouriteBookId;
     @OneToMany(mappedBy = "isbn", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Book> favouriteBookSet;
 }
