@@ -1,0 +1,26 @@
+2024-05-21T16:25:19.042+08:00  INFO 5740 --- [webapp] [restartedMain] com.library.webapp.WebappApplication     : Starting WebappApplication using Java 22.0.1 with PID 5740 (C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\webapp\target\classes started by cyh20 in C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\webapp)
+2024-05-21T16:25:19.048+08:00  INFO 5740 --- [webapp] [restartedMain] com.library.webapp.WebappApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-05-21T16:25:19.145+08:00  INFO 5740 --- [webapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-21T16:25:19.147+08:00  INFO 5740 --- [webapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-21T16:25:20.233+08:00  INFO 5740 --- [webapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-21T16:25:20.347+08:00  INFO 5740 --- [webapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 1 JPA repository interface.
+2024-05-21T16:25:21.220+08:00  INFO 5740 --- [webapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-05-21T16:25:21.247+08:00  INFO 5740 --- [webapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-21T16:25:21.248+08:00  INFO 5740 --- [webapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-21T16:25:21.331+08:00  INFO 5740 --- [webapp] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-21T16:25:21.332+08:00  INFO 5740 --- [webapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2185 ms
+2024-05-21T16:25:21.797+08:00  INFO 5740 --- [webapp] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-21T16:25:21.921+08:00  INFO 5740 --- [webapp] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-21T16:25:21.964+08:00  INFO 5740 --- [webapp] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-21T16:25:22.227+08:00  INFO 5740 --- [webapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-21T16:25:22.266+08:00  INFO 5740 --- [webapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-21T16:25:22.635+08:00  INFO 5740 --- [webapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@304bcf48
+2024-05-21T16:25:22.637+08:00  INFO 5740 --- [webapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-21T16:25:22.725+08:00  WARN 5740 --- [webapp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-21T16:25:23.733+08:00  INFO 5740 --- [webapp] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-21T16:25:23.797+08:00  INFO 5740 --- [webapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-21T16:25:23.854+08:00  WARN 5740 --- [webapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-21T16:25:24.685+08:00  INFO 5740 --- [webapp] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-21T16:25:24.812+08:00  WARN 5740 --- [webapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-05-21T16:25:24.883+08:00  INFO 5740 --- [webapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-05-21T16:25:24.901+08:00  INFO 5740 --- [webapp] [restartedMain] com.library.webapp.WebappApplication     : Started WebappApplication in 6.563 seconds (process running for 7.649)

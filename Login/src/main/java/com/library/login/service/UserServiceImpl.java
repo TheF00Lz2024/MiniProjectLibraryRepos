@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("userServiceImpl")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Autowired
@@ -21,9 +21,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User createUser(User user) {
-        if(userRepository.findById(user.getUserId()).isEmpty()){
+        if (userRepository.findById(user.getUserId()).isEmpty()) {
             return userRepository.save(user);
-        }else{
+        } else {
             throw new DuplicateUserId("{\"message\":\"Username taken!\"}");
         }
     }
@@ -31,37 +31,37 @@ public class UserServiceImpl implements UserService{
     @Override
     public User getUser(String username, String password) {
         List<User> foundUser = userRepository.loginUser(username, password);
-        if(foundUser.isEmpty()){
+        if (foundUser.isEmpty()) {
             throw new NoUserFound("{\"message\":\"Incorrect username or password!\"}");
-        }else{
+        } else {
             return foundUser.getFirst();
         }
     }
 
     @Override
     public User deleteUser(String username, String userRoles, String deleteRoles) {
-        if(userRoles.equalsIgnoreCase("Admin")){
-            if(deleteRoles.equalsIgnoreCase("User")){
+        if (userRoles.equalsIgnoreCase("Admin")) {
+            if (deleteRoles.equalsIgnoreCase("User")) {
                 throw new ForbiddenAction("{\"message\":\"Cannot delete this User!\"}");
-            }else{
+            } else {
                 return deleteUserFunction(username, deleteRoles);
             }
-        }else if(userRoles.equalsIgnoreCase("User")){
-            if(deleteRoles.equalsIgnoreCase("User")){
+        } else if (userRoles.equalsIgnoreCase("User")) {
+            if (deleteRoles.equalsIgnoreCase("User")) {
                 return deleteUserFunction(username, deleteRoles);
-            }else{
+            } else {
                 throw new ForbiddenAction("{\"message\":\"Forbidden delete of Account!\"}");
             }
-        }else{
+        } else {
             throw new ForbiddenAction("{\"message\":\"Forbidden delete of Account!\"}");
         }
     }
 
-    private User deleteUserFunction(String username, String roles){
+    private User deleteUserFunction(String username, String roles) {
         List<User> foundUser = userRepository.findEmployee(username, roles);
-        if(foundUser.isEmpty()){
+        if (foundUser.isEmpty()) {
             throw new NoUserFound("{\"message\":\"No such user exist!\"}");
-        }else{
+        } else {
             userRepository.deleteById(username);
             return foundUser.getFirst();
         }

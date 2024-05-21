@@ -1,5 +1,6 @@
 package com.library.login.cotroller;
 
+import com.google.common.hash.Hashing;
 import com.library.login.config.JWTTokenConfiguration;
 import com.library.login.exception.DuplicateUserId;
 import com.library.login.exception.ForbiddenAction;
@@ -10,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.google.common.hash.Hashing;
-
 
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
@@ -30,13 +29,13 @@ public class LoginController {
     }
 
     @GetMapping("testAPI")
-    public ResponseEntity<String> testAPI(){
+    public ResponseEntity<String> testAPI() {
         return new ResponseEntity<>("{\"message\":\"Hello World!\"}", HttpStatus.OK);
     }
 
     // API to create new User
     @PostMapping("/user")
-    public ResponseEntity<User> createUser(@RequestBody User user){
+    public ResponseEntity<User> createUser(@RequestBody User user) {
         //hash user password
         String hashedPassword = Hashing.sha256()
                 .hashString(user.getPassword(), StandardCharsets.UTF_8)
@@ -47,35 +46,35 @@ public class LoginController {
 
     //API to get User
     @GetMapping("/user")
-    public ResponseEntity<Map<String, String>> loginUser(@RequestParam("username") String username, @RequestParam("password") String password){
+    public ResponseEntity<Map<String, String>> loginUser(@RequestParam("username") String username, @RequestParam("password") String password) {
         //hash user password
         String hashedPassword = Hashing.sha256()
                 .hashString(password, StandardCharsets.UTF_8)
                 .toString();
         User getuser = userService.getUser(username, hashedPassword);
-        return new ResponseEntity<>( jwtTokenConfiguration.generateToken(getuser), HttpStatus.FOUND);
+        return new ResponseEntity<>(jwtTokenConfiguration.generateToken(getuser), HttpStatus.FOUND);
     }
 
     @DeleteMapping("/user")
     public ResponseEntity<User> deleteUser(
             @RequestParam("username") String username,
             @RequestParam("userRoles") String userRoles,
-            @RequestParam("deleteRoles") String deleteRoles){
+            @RequestParam("deleteRoles") String deleteRoles) {
         return new ResponseEntity<>(userService.deleteUser(username, userRoles, deleteRoles), HttpStatus.OK);
     }
 
     @ExceptionHandler(NoUserFound.class)
-    public ResponseEntity<String> noUserFound(NoUserFound message){
+    public ResponseEntity<String> noUserFound(NoUserFound message) {
         return new ResponseEntity<>(message.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(DuplicateUserId.class)
-    public ResponseEntity<String> duplicateUser(DuplicateUserId message){
+    public ResponseEntity<String> duplicateUser(DuplicateUserId message) {
         return new ResponseEntity<>(message.getMessage(), HttpStatus.FORBIDDEN);
     }
 
     @ExceptionHandler(ForbiddenAction.class)
-    public ResponseEntity<String> unableDeleteUser(ForbiddenAction message){
+    public ResponseEntity<String> unableDeleteUser(ForbiddenAction message) {
         return new ResponseEntity<>(message.getMessage(), HttpStatus.FORBIDDEN);
     }
 }
