@@ -1,6 +1,8 @@
 package com.library.login.cotroller;
 
+import com.library.login.config.JWTTokenConfiguration;
 import com.library.login.exception.DuplicateUserId;
+import com.library.login.exception.ForbiddenAction;
 import com.library.login.exception.NoUserFound;
 import com.library.login.model.User;
 import com.library.login.service.UserService;
@@ -12,16 +14,19 @@ import com.google.common.hash.Hashing;
 
 
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1")
 public class LoginController {
 
     private final UserService userService;
+    private final JWTTokenConfiguration jwtTokenConfiguration;
 
     @Autowired
-    public LoginController(UserService userService) {
+    public LoginController(UserService userService, JWTTokenConfiguration jwtTokenConfiguration) {
         this.userService = userService;
+        this.jwtTokenConfiguration = jwtTokenConfiguration;
     }
 
     @GetMapping("testAPI")
@@ -42,12 +47,21 @@ public class LoginController {
 
     //API to get User
     @GetMapping("/user")
-    public ResponseEntity<User> loginUser(@RequestParam("username") String username, @RequestParam("password") String password){
+    public ResponseEntity<Map<String, String>> loginUser(@RequestParam("username") String username, @RequestParam("password") String password){
         //hash user password
         String hashedPassword = Hashing.sha256()
                 .hashString(password, StandardCharsets.UTF_8)
                 .toString();
-        return new ResponseEntity<>(userService.getUser(username, hashedPassword), HttpStatus.FOUND);
+        User getuser = userService.getUser(username, hashedPassword);
+        return new ResponseEntity<>( jwtTokenConfiguration.generateToken(getuser), HttpStatus.FOUND);
+    }
+
+    @DeleteMapping("/user")
+    public ResponseEntity<User> deleteUser(
+            @RequestParam("username") String username,
+            @RequestParam("userRoles") String userRoles,
+            @RequestParam("deleteRoles") String deleteRoles){
+        return new ResponseEntity<>(userService.deleteUser(username, userRoles, deleteRoles), HttpStatus.OK);
     }
 
     @ExceptionHandler(NoUserFound.class)
@@ -57,6 +71,11 @@ public class LoginController {
 
     @ExceptionHandler(DuplicateUserId.class)
     public ResponseEntity<String> duplicateUser(DuplicateUserId message){
+        return new ResponseEntity<>(message.getMessage(), HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(ForbiddenAction.class)
+    public ResponseEntity<String> unableDeleteUser(ForbiddenAction message){
         return new ResponseEntity<>(message.getMessage(), HttpStatus.FORBIDDEN);
     }
 }

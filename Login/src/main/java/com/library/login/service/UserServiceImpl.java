@@ -1,6 +1,7 @@
 package com.library.login.service;
 
 import com.library.login.exception.DuplicateUserId;
+import com.library.login.exception.ForbiddenAction;
 import com.library.login.exception.NoUserFound;
 import com.library.login.model.User;
 import com.library.login.repository.UserRepository;
@@ -38,7 +39,31 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User deleteUser(User user) {
-        return null;
+    public User deleteUser(String username, String userRoles, String deleteRoles) {
+        if(userRoles.equalsIgnoreCase("Admin")){
+            if(deleteRoles.equalsIgnoreCase("User")){
+                throw new ForbiddenAction("{\"message\":\"Cannot delete this User!\"}");
+            }else{
+                return deleteUserFunction(username, deleteRoles);
+            }
+        }else if(userRoles.equalsIgnoreCase("User")){
+            if(deleteRoles.equalsIgnoreCase("User")){
+                return deleteUserFunction(username, deleteRoles);
+            }else{
+                throw new ForbiddenAction("{\"message\":\"Forbidden delete of Account!\"}");
+            }
+        }else{
+            throw new ForbiddenAction("{\"message\":\"Forbidden delete of Account!\"}");
+        }
+    }
+
+    private User deleteUserFunction(String username, String roles){
+        List<User> foundUser = userRepository.findEmployee(username, roles);
+        if(foundUser.isEmpty()){
+            throw new NoUserFound("{\"message\":\"No such user exist!\"}");
+        }else{
+            userRepository.deleteById(username);
+            return foundUser.getFirst();
+        }
     }
 }

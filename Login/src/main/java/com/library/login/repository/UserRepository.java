@@ -16,5 +16,4 @@ public interface UserRepository extends CrudRepository<User, String> {
     @Query(value = "SELECT * FROM user WHERE user_id=:userId AND roles=:roles", nativeQuery = true)
     List<User> findEmployee(@Param("userId")String userId, @Param("roles") String roles);
 
-    
 }
