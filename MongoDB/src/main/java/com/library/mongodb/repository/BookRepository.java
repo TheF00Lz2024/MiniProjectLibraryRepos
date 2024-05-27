@@ -13,6 +13,8 @@ import java.util.List;
 
 @Repository
 public interface BookRepository extends CrudRepository<Book, String> {
+    @NonNull
+    List<Book> findAll();
 
     @Transactional
     @Modifying
