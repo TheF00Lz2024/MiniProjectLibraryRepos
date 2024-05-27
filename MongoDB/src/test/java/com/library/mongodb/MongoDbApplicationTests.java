@@ -1,4 +1,4 @@
-package com.library.MongoDB;
+package com.library.mongodb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

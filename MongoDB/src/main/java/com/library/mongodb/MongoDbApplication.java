@@ -1,4 +1,4 @@
-package com.library.MongoDB;
+package com.library.mongodb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

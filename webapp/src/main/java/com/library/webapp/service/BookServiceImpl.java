@@ -18,15 +18,6 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public Book addBook(Book book) {
-        if(bookRepository.findById(book.getIsbn()).isEmpty()){
-            return bookRepository.save(book);
-        }else{
-            throw new DuplicateISBN("{\"message\":\"This ISBN already exist!\"}");
-        }
-    }
-
-    @Override
     public List<Book> getAllBook() {
         return bookRepository.findAll();
     }
@@ -34,26 +25,5 @@ public class BookServiceImpl implements BookService{
     @Override
     public List<Book> getAllUserFavoriteBook(int id) {
         return bookRepository.findUserFavoriteBook(id);
-    }
-
-    @Override
-    public Book updateBook(Book book) {
-        if(bookRepository.findById(book.getIsbn()).isEmpty()){
-            throw new NoBookFound("{\"message\":\"No book with this isbn!\"}");
-        }else{
-            bookRepository.updateBookDetail(book.getTitle(), book.getIsbn());
-            return book;
-        }
-    }
-
-    @Override
-    public Book removeBook(String isbn) {
-        Optional<Book> foundBook = bookRepository.findById(isbn);
-        if(foundBook.isEmpty()){
-            throw new NoBookFound("{\"message\":\"No book with this isbn!\"}");
-        }else{
-            bookRepository.deleteById(isbn);
-            return foundBook.get();
-        }
     }
 }
