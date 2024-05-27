@@ -15,7 +15,5 @@ public class Book {
     @Id
     private String isbn;
     private String title;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "author")
-    private User authorName;
+    private String authorName;
 }

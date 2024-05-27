@@ -1,6 +1,7 @@
-package com.library.login.model;
+package com.library.webapp.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,5 @@ public class Book {
     @Id
     private String isbn;
     private String title;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "author")
-    private User authorName;
+    private String authorName;
 }

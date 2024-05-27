@@ -1,4 +1,4 @@
-package com.library.login.model;
+package com.library.webapp.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
