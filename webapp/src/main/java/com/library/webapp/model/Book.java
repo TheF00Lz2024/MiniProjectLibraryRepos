@@ -1,4 +1,4 @@
-package com.library.webapp.model;
+package com.library.login.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,9 +16,6 @@ public class Book {
     private String isbn;
     private String title;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "favouriteBookSet")
-    private FavouriteBook favouriteListId;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "author")
     private User authorName;
 }

@@ -1,4 +1,4 @@
-package com.library.webapp.model;
+package com.library.login.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,6 +18,7 @@ public class FavouriteBook {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "favourite_book_id")
     private int favouriteBookId;
-    @OneToMany(mappedBy = "isbn", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Book> favouriteBookSet;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "isbn")
+    private Book isbn;
 }
