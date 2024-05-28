@@ -1457,3 +1457,35 @@ com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer fou
 2024-05-28T13:02:49.203+08:00  INFO 22896 --- [webapp] [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2024-05-28T13:04:19.131+08:00  WARN 22896 --- [webapp] [http-nio-8082-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.webapp.exception.NoFavouriteBookFound: {"message":"No such book found in favourite list!"}]
 2024-05-28T13:04:20.461+08:00  WARN 22896 --- [webapp] [http-nio-8082-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.webapp.exception.NoFavouriteBookFound: {"message":"No such book found in favourite list!"}]
+2024-05-28T16:16:03.193+08:00  INFO 22896 --- [webapp] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28T16:16:03.239+08:00  INFO 22896 --- [webapp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-28T16:16:03.252+08:00  INFO 22896 --- [webapp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-28T16:17:53.102+08:00  INFO 12964 --- [webapp] [restartedMain] com.library.webapp.WebAppApplication     : Starting WebAppApplication using Java 22.0.1 with PID 12964 (C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\WebApp\target\classes started by cyh20 in C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\WebApp)
+2024-05-28T16:17:53.106+08:00  INFO 12964 --- [webapp] [restartedMain] com.library.webapp.WebAppApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-05-28T16:17:53.206+08:00  INFO 12964 --- [webapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-28T16:17:53.207+08:00  INFO 12964 --- [webapp] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-28T16:17:54.490+08:00  INFO 12964 --- [webapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-28T16:17:54.565+08:00  INFO 12964 --- [webapp] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 1 JPA repository interface.
+2024-05-28T16:17:55.582+08:00  INFO 12964 --- [webapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2024-05-28T16:17:55.639+08:00  INFO 12964 --- [webapp] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-28T16:17:55.640+08:00  INFO 12964 --- [webapp] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-28T16:17:55.764+08:00  INFO 12964 --- [webapp] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-28T16:17:55.765+08:00  INFO 12964 --- [webapp] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2558 ms
+2024-05-28T16:17:56.376+08:00  INFO 12964 --- [webapp] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-28T16:17:56.512+08:00  INFO 12964 --- [webapp] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-28T16:17:56.547+08:00  INFO 12964 --- [webapp] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-28T16:17:56.855+08:00  INFO 12964 --- [webapp] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-28T16:17:56.892+08:00  INFO 12964 --- [webapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-28T16:17:57.303+08:00  INFO 12964 --- [webapp] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59b99171
+2024-05-28T16:17:57.309+08:00  INFO 12964 --- [webapp] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-28T16:17:57.388+08:00  WARN 12964 --- [webapp] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-28T16:17:58.477+08:00  INFO 12964 --- [webapp] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-28T16:17:58.533+08:00  INFO 12964 --- [webapp] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28T16:17:58.827+08:00  INFO 12964 --- [webapp] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-28T16:17:58.926+08:00  WARN 12964 --- [webapp] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-28T16:17:59.862+08:00  WARN 12964 --- [webapp] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-05-28T16:17:59.934+08:00  INFO 12964 --- [webapp] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2024-05-28T16:17:59.950+08:00  INFO 12964 --- [webapp] [restartedMain] com.library.webapp.WebAppApplication     : Started WebAppApplication in 7.724 seconds (process running for 8.6)
+2024-05-28T16:19:21.929+08:00  INFO 12964 --- [webapp] [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-28T16:19:21.930+08:00  INFO 12964 --- [webapp] [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-28T16:19:21.931+08:00  INFO 12964 --- [webapp] [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

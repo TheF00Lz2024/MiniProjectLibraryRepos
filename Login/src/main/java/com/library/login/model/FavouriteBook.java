@@ -18,7 +18,5 @@ public class FavouriteBook {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "username")
     private User username;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "isbn")
-    private Book isbn;
+    private String isbn;
 }

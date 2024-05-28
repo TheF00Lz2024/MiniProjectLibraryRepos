@@ -20,7 +20,7 @@ public class FavouriteBookServiceImpl implements FavouriteBookService{
 
     @Override
     public FavouriteBook saveFavouriteBook(FavouriteBook favouriteBook) {
-        if(favouritebookRepository.findSelectedFavouriteBook(favouriteBook.getUsername().getUsername(), favouriteBook.getIsbn().getIsbn()).isEmpty()){
+        if(favouritebookRepository.findSelectedFavouriteBook(favouriteBook.getUsername().getUsername(), favouriteBook.getIsbn()).isEmpty()){
             return favouritebookRepository.save(favouriteBook);
         }else{
             throw new DuplicateFavouriteBook("{\"message\":\"This book is already added to Favourite List!\"}");
