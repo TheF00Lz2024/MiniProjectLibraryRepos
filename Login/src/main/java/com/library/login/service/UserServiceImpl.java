@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(User user) {
-        if (userRepository.findById(user.getUserId()).isEmpty()) {
+        if (userRepository.findById(user.getUsername()).isEmpty()) {
             return userRepository.save(user);
         } else {
             throw new DuplicateUserId("{\"message\":\"Username taken!\"}");

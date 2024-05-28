@@ -10,10 +10,10 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, String> {
-    @Query(value = "SELECT * FROM user WHERE user_id=:userId AND password=:password", nativeQuery = true)
-    List<User> loginUser(@Param("userId") String userId, @Param("password") String password);
+    @Query(value = "SELECT * FROM user WHERE username=:username AND password=:password", nativeQuery = true)
+    List<User> loginUser(@Param("username") String username, @Param("password") String password);
 
-    @Query(value = "SELECT * FROM user WHERE user_id=:userId AND roles=:roles", nativeQuery = true)
-    List<User> findEmployee(@Param("userId") String userId, @Param("roles") String roles);
+    @Query(value = "SELECT * FROM user WHERE username=:username AND roles=:roles", nativeQuery = true)
+    List<User> findEmployee(@Param("username") String username, @Param("roles") String roles);
 
 }

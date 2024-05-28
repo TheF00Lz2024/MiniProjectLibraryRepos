@@ -14,8 +14,10 @@ import lombok.NoArgsConstructor;
 public class FavouriteBook {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "favourite_book_id")
-    private int favouriteBookId;
+    private long id;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "username")
+    private User username;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "isbn")
     private Book isbn;
