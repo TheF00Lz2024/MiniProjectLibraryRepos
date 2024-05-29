@@ -5,7 +5,7 @@
   <span>Library App</span>
 </mat-toolbar>
 
-<div style="display: flex; justify-content: center; align-items: center; height: 90%;">
+<div style="display: flex; justify-content: center; align-items: center; height: 90%;" *ngIf="userLogin">
   <div class="container" style="width: 80%; background-color: bisque;">
     <h2 style="text-align: center;">
       Login
@@ -20,7 +20,7 @@
         <input matInput />
       </mat-form-field>
       <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
-        <button mat-button style="text-align: center; color: blue;">
+        <button mat-button style="text-align: center; color: blue;" (click)="createdAccount()">
           <u>Create an Account</u>
         </button>
       </div>
@@ -30,3 +30,4 @@
     </form>
   </div>
 </div>
+<app-sign-up *ngIf="!userLogin"></app-sign-up>
