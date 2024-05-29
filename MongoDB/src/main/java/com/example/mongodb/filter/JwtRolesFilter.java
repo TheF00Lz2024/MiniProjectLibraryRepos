@@ -1,4 +1,4 @@
-package com.library.webapp.filter;
+package com.example.mongodb.filter;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -15,7 +15,7 @@ import org.springframework.web.filter.GenericFilterBean;
 import javax.crypto.SecretKey;
 import java.io.IOException;
 
-public class JwtUserFilter extends GenericFilterBean {
+public class JwtRolesFilter extends GenericFilterBean {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -27,20 +27,24 @@ public class JwtUserFilter extends GenericFilterBean {
             response.setStatus(HttpServletResponse.SC_OK);
             filterChain.doFilter(request, response);
         } else {
-            if(authHeader==null || !authHeader.startsWith("Bearer ")){
+            if (authHeader == null || !authHeader.startsWith("Bearer ")) {
                 throw new ServletException("An exception had occur!");
             }
             final String token = authHeader.substring(7);
             SecretKey newKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode("5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437"));
             Claims claim = Jwts.parser().verifyWith(newKey).build().parseSignedClaims(token).getPayload();
-            String loginStatus = claim.getSubject().split(",")[2].trim();
-            if(!loginStatus.equalsIgnoreCase("Login: Success")){
+            String[] stringData = claim.getSubject().split(",");
+            String loginStatus = stringData[2].trim();
+            String userRoles = stringData[1].trim();
+            if (!loginStatus.equalsIgnoreCase("Login: Success")) {
                 throw new ServletException("Unknown exception");
             }
-            request.setAttribute("claim",claim);
-            request.setAttribute("user",servletRequest.getAttribute("username"));
+            if (!userRoles.equalsIgnoreCase("Roles: Author")) {
+                throw new ServletException("Invalid Role");
+            }
+            request.setAttribute("claim", claim);
+            request.setAttribute("user", servletRequest.getAttribute("username"));
             filterChain.doFilter(request, response);
         }
-
     }
 }
