@@ -7,11 +7,13 @@ import com.example.mongodb.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service("bookServiceImpl")
 public class BookServiceImpl implements BookService{
 
+    private static final String NOBOOKFOUNDERRORMESSAGE = "{\"message\":\"There is no book with this ISBN!\"}";
     private final BookRepository bookRepository;
 
     @Autowired
@@ -32,18 +34,26 @@ public class BookServiceImpl implements BookService{
     public Book getBook(String isbn) {
         Optional<Book> foundBook = bookRepository.findById(isbn);
         if(foundBook.isEmpty()){
-            throw new NoBookFound("{\"message\":\"There is no book with this ISBN!\"}");
+            throw new NoBookFound(NOBOOKFOUNDERRORMESSAGE);
         }else{
             return foundBook.get();
         }
     }
 
     @Override
+    public List<Book> getAllBook() {
+        return bookRepository.findAll();
+    }
+
+    @Override
     public Book updateBook(Book book) {
-        if(bookRepository.findById(book.getIsbn()).isEmpty()){
-            throw new NoBookFound("{\"message\":\"There is no book with this ISBN!\"}");
+        Optional<Book> foundBook = bookRepository.findById(book.getIsbn());
+        if(foundBook.isEmpty()){
+            throw new NoBookFound(NOBOOKFOUNDERRORMESSAGE);
         }else{
-            return bookRepository.save(book);
+            Book getFoundBook = foundBook.get();
+            getFoundBook.setTitle(book.getTitle());
+            return bookRepository.save(getFoundBook);
         }
     }
 
@@ -51,7 +61,7 @@ public class BookServiceImpl implements BookService{
     public Book deleteBook(String isbn) {
         Optional<Book> foundBook = bookRepository.findById(isbn);
         if(foundBook.isEmpty()){
-            throw new NoBookFound("{\"message\":\"There is no book with this ISBN!\"}");
+            throw new NoBookFound(NOBOOKFOUNDERRORMESSAGE);
         }else{
             bookRepository.deleteById(isbn);
             return foundBook.get();

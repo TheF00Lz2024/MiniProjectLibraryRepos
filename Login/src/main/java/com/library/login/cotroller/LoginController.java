@@ -55,6 +55,7 @@ public class LoginController {
         return new ResponseEntity<>(jwtTokenConfiguration.generateToken(getuser), HttpStatus.FOUND);
     }
 
+    //API for removing user
     @DeleteMapping("/user")
     public ResponseEntity<User> deleteUser(
             @RequestParam("username") String username,

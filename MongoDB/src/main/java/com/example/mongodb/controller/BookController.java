@@ -5,10 +5,13 @@ import com.example.mongodb.exception.NoBookFound;
 import com.example.mongodb.model.Book;
 import com.example.mongodb.model.BookDTO;
 import com.example.mongodb.service.BookService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -25,23 +28,33 @@ public class BookController {
         return new ResponseEntity<>("{\"message\":\"Hello World!\"}", HttpStatus.OK);
     }
 
-    @GetMapping("/book")
-    public ResponseEntity<Book> getBook(@RequestParam("isbn")String isbn){
+    // API for getting specific book by isbn
+    @GetMapping("/book/{isbn}")
+    public ResponseEntity<Book> getBook(@PathVariable("isbn") String isbn){
         return new ResponseEntity<>(bookService.getBook(isbn), HttpStatus.FOUND);
     }
 
+    //API for getting all the book from DB
+    @GetMapping("/book")
+    public ResponseEntity<List<Book>> getAllBook(){
+        return new ResponseEntity<>(bookService.getAllBook(), HttpStatus.OK);
+    }
+
+    //API for adding new book to DB
     @PostMapping("/book")
     public ResponseEntity<Book> addBook(@RequestBody BookDTO book){
         Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName());
         return new ResponseEntity<>(bookService.addBook(newBook), HttpStatus.CREATED);
     }
 
+    //API for updating book to DB
     @PutMapping("/book")
     public ResponseEntity<Book> updateBook(@RequestBody BookDTO book){
         Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName());
-        return new ResponseEntity<>(newBook, HttpStatus.OK);
+        return new ResponseEntity<>(bookService.updateBook(newBook), HttpStatus.OK);
     }
 
+    //API for deleting book from DB
     @DeleteMapping("/book")
     public ResponseEntity<Book> deleteBook(@RequestParam("isbn")String isbn){
         return new ResponseEntity<>(bookService.deleteBook(isbn), HttpStatus.OK);

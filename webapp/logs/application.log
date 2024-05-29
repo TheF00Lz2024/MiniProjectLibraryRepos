@@ -1489,3 +1489,7 @@ com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer fou
 2024-05-28T16:19:21.929+08:00  INFO 12964 --- [webapp] [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-05-28T16:19:21.930+08:00  INFO 12964 --- [webapp] [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-05-28T16:19:21.931+08:00  INFO 12964 --- [webapp] [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-28T16:19:52.818+08:00  WARN 12964 --- [webapp] [http-nio-8082-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.webapp.exception.NoFavouriteBookFound: {"message":"No such book found in favourite list!"}]
+2024-05-28T16:28:10.746+08:00  INFO 12964 --- [webapp] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28T16:28:10.749+08:00  INFO 12964 --- [webapp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-28T16:28:10.757+08:00  INFO 12964 --- [webapp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

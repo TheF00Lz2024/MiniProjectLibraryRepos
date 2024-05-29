@@ -983,3 +983,6 @@ Caused by: org.hibernate.AnnotationException: Association 'com.library.login.mod
 2024-05-28T16:19:05.545+08:00  INFO 18312 --- [Login] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-05-28T16:19:05.546+08:00  INFO 18312 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-05-28T16:19:05.547+08:00  INFO 18312 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-28T16:28:13.046+08:00  INFO 18312 --- [Login] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-28T16:28:13.048+08:00  INFO 18312 --- [Login] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-28T16:28:13.053+08:00  INFO 18312 --- [Login] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
