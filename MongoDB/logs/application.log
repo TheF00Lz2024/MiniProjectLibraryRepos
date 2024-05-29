@@ -324,3 +324,270 @@ jakarta.servlet.ServletException: An exception had occur!
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
 	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
 
+2024-05-29T11:33:38.514+08:00  WARN 26368 --- [MongoDB] [http-nio-8083-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' is not supported]
+2024-05-29T11:34:59.191+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017
+
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:707) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:583) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:428) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:381) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:153) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:318) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.implRead(Socket.java:1108) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1095) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1462) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1068) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:176) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:196) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:716) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:580) ~[mongodb-driver-core-5.0.1.jar:na]
+	... 5 common frames omitted
+
+2024-05-29T11:34:59.191+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017
+
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:707) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:583) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:428) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:381) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:153) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:318) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.implRead(Socket.java:1108) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1095) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1462) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1068) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:176) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:196) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:716) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:580) ~[mongodb-driver-core-5.0.1.jar:na]
+	... 5 common frames omitted
+
+2024-05-29T11:34:59.192+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017
+
+com.mongodb.MongoSocketReadException: Exception receiving message
+	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:707) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:583) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:428) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:381) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:153) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:318) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:346) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:796) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.implRead(Socket.java:1108) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1095) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:489) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:483) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1462) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1068) ~[na:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:176) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:196) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:716) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:580) ~[mongodb-driver-core-5.0.1.jar:na]
+	... 5 common frames omitted
+
+2024-05-29T11:34:59.234+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017
+
+com.mongodb.MongoSocketException: No such host is known (ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net)
+	at com.mongodb.internal.connection.ServerAddressHelper.getSocketAddresses(ServerAddressHelper.java:75) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:101) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:80) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:201) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:193) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:153) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.net.UnknownHostException: No such host is known (ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[na:na]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1221) ~[na:na]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1816) ~[na:na]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1149) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1806) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1676) ~[na:na]
+	at com.mongodb.internal.connection.DefaultInetAddressResolver.lookupByName(DefaultInetAddressResolver.java:34) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.ServerAddressHelper.getSocketAddresses(ServerAddressHelper.java:71) ~[mongodb-driver-core-5.0.1.jar:na]
+	... 6 common frames omitted
+
+2024-05-29T11:34:59.234+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017
+
+com.mongodb.MongoSocketException: No such host is known (ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net)
+	at com.mongodb.internal.connection.ServerAddressHelper.getSocketAddresses(ServerAddressHelper.java:75) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:101) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:80) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:201) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:193) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:153) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.net.UnknownHostException: No such host is known (ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[na:na]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1221) ~[na:na]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1816) ~[na:na]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1149) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1806) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1676) ~[na:na]
+	at com.mongodb.internal.connection.DefaultInetAddressResolver.lookupByName(DefaultInetAddressResolver.java:34) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.ServerAddressHelper.getSocketAddresses(ServerAddressHelper.java:71) ~[mongodb-driver-core-5.0.1.jar:na]
+	... 6 common frames omitted
+
+2024-05-29T11:34:59.246+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017
+
+com.mongodb.MongoSocketException: No such host is known (ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net)
+	at com.mongodb.internal.connection.ServerAddressHelper.getSocketAddresses(ServerAddressHelper.java:75) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.initializeSocket(SocketStream.java:101) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.SocketStream.open(SocketStream.java:80) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:201) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:193) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:153) ~[mongodb-driver-core-5.0.1.jar:na]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+Caused by: java.net.UnknownHostException: No such host is known (ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[na:na]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1221) ~[na:na]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1816) ~[na:na]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1149) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1806) ~[na:na]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1676) ~[na:na]
+	at com.mongodb.internal.connection.DefaultInetAddressResolver.lookupByName(DefaultInetAddressResolver.java:34) ~[mongodb-driver-core-5.0.1.jar:na]
+	at com.mongodb.internal.connection.ServerAddressHelper.getSocketAddresses(ServerAddressHelper.java:71) ~[mongodb-driver-core-5.0.1.jar:na]
+	... 6 common frames omitted
+
+2024-05-29T12:51:51.677+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=114420000, setName='atlas-47teg4-shard-0', canonicalAddress=ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017, hosts=[ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='apse1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='AP_SOUTHEAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=18, topologyVersion=TopologyVersion{processId=6655e50a9a0542a1b5287643, counter=3}, lastWriteDate=Wed May 29 12:51:51 SGT 2024, lastUpdateTimeNanos=302548097463800}
+2024-05-29T12:51:51.677+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=116250300, setName='atlas-47teg4-shard-0', canonicalAddress=ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, hosts=[ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='apse1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='AP_SOUTHEAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=18, topologyVersion=TopologyVersion{processId=6655e46144e53b2d1360f424, counter=4}, lastWriteDate=Wed May 29 12:51:51 SGT 2024, lastUpdateTimeNanos=302548097316800}
+2024-05-29T12:51:51.682+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=100039100, setName='atlas-47teg4-shard-0', canonicalAddress=ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, hosts=[ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='apse1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='AP_SOUTHEAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000c0, setVersion=18, topologyVersion=TopologyVersion{processId=6655e4b704712c407d9fbe2d, counter=6}, lastWriteDate=Wed May 29 12:51:51 SGT 2024, lastUpdateTimeNanos=302548103940900}
+2024-05-29T12:51:51.685+08:00  INFO 26368 --- [MongoDB] [cluster-ClusterId{value='66569d0dc3479948e8a37b2d', description='BookDB'}-ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Discovered replica set primary ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017 with max election id 7fffffff00000000000000c0 and max set version 18
+2024-05-29T13:20:27.431+08:00  INFO 12752 --- [MongoDB] [restartedMain] com.example.mongodb.MongoDbApplication   : Starting MongoDbApplication using Java 22.0.1 with PID 12752 (C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\MongoDB\target\classes started by cyh20 in C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\MongoDB)
+2024-05-29T13:20:27.434+08:00  INFO 12752 --- [MongoDB] [restartedMain] com.example.mongodb.MongoDbApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-05-29T13:20:27.545+08:00  INFO 12752 --- [MongoDB] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-29T13:20:27.545+08:00  INFO 12752 --- [MongoDB] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-29T13:20:28.610+08:00  INFO 12752 --- [MongoDB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-05-29T13:20:28.712+08:00  INFO 12752 --- [MongoDB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 1 MongoDB repository interface.
+2024-05-29T13:20:29.868+08:00  INFO 12752 --- [MongoDB] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2024-05-29T13:20:29.903+08:00  INFO 12752 --- [MongoDB] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-29T13:20:29.904+08:00  INFO 12752 --- [MongoDB] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-05-29T13:20:29.995+08:00  INFO 12752 --- [MongoDB] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-29T13:20:29.995+08:00  INFO 12752 --- [MongoDB] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2449 ms
+2024-05-29T13:20:30.310+08:00  INFO 12752 --- [MongoDB] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"application": {"name": "BookDB"}, "driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='projectUser', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@6b25c1c1, com.mongodb.Jep395RecordCodecProvider@7607946d, com.mongodb.KotlinCodecProvider@23b44d6b]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=bookdb.2dixccw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-47teg4-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='BookDB', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-05-29T13:20:30.316+08:00  INFO 12752 --- [MongoDB] [cluster-ClusterId{value='6656bb1e1855b91491461b41', description='BookDB'}-srv-bookdb.2dixccw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017 to client view of cluster
+2024-05-29T13:20:30.348+08:00  INFO 12752 --- [MongoDB] [cluster-ClusterId{value='6656bb1e1855b91491461b41', description='BookDB'}-srv-bookdb.2dixccw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017 to client view of cluster
+2024-05-29T13:20:30.353+08:00  INFO 12752 --- [MongoDB] [cluster-ClusterId{value='6656bb1e1855b91491461b41', description='BookDB'}-srv-bookdb.2dixccw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017 to client view of cluster
+2024-05-29T13:20:30.906+08:00  WARN 12752 --- [MongoDB] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-05-29T13:20:31.832+08:00  INFO 12752 --- [MongoDB] [cluster-ClusterId{value='6656bb1e1855b91491461b41', description='BookDB'}-ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1004871300, setName='atlas-47teg4-shard-0', canonicalAddress=ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017, hosts=[ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='apse1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='AP_SOUTHEAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=18, topologyVersion=TopologyVersion{processId=6655e50a9a0542a1b5287643, counter=3}, lastWriteDate=Wed May 29 13:20:31 SGT 2024, lastUpdateTimeNanos=304268230384300}
+2024-05-29T13:20:31.836+08:00  INFO 12752 --- [MongoDB] [cluster-ClusterId{value='6656bb1e1855b91491461b41', description='BookDB'}-ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1005224600, setName='atlas-47teg4-shard-0', canonicalAddress=ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, hosts=[ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='apse1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='AP_SOUTHEAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=18, topologyVersion=TopologyVersion{processId=6655e46144e53b2d1360f424, counter=4}, lastWriteDate=Wed May 29 13:20:31 SGT 2024, lastUpdateTimeNanos=304268230384200}
+2024-05-29T13:20:31.838+08:00  INFO 12752 --- [MongoDB] [cluster-ClusterId{value='6656bb1e1855b91491461b41', description='BookDB'}-ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1006492100, setName='atlas-47teg4-shard-0', canonicalAddress=ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, hosts=[ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017, ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='apse1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='AP_SOUTHEAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff00000000000000c0, setVersion=18, topologyVersion=TopologyVersion{processId=6655e4b704712c407d9fbe2d, counter=6}, lastWriteDate=Wed May 29 13:20:31 SGT 2024, lastUpdateTimeNanos=304268230389200}
+2024-05-29T13:20:31.866+08:00  INFO 12752 --- [MongoDB] [cluster-ClusterId{value='6656bb1e1855b91491461b41', description='BookDB'}-ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017] org.mongodb.driver.cluster               : Discovered replica set primary ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017 with max election id 7fffffff00000000000000c0 and max set version 18
+2024-05-29T13:20:32.896+08:00  INFO 12752 --- [MongoDB] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2024-05-29T13:20:32.921+08:00  INFO 12752 --- [MongoDB] [restartedMain] com.example.mongodb.MongoDbApplication   : Started MongoDbApplication in 6.77 seconds (process running for 7.807)
+2024-05-29T13:44:44.342+08:00  INFO 12752 --- [MongoDB] [http-nio-8083-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-29T13:44:44.342+08:00  INFO 12752 --- [MongoDB] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-29T13:44:44.344+08:00  INFO 12752 --- [MongoDB] [http-nio-8083-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-29T13:45:21.277+08:00 ERROR 12752 --- [MongoDB] [http-nio-8083-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.MalformedJwtException: Compact JWT strings may not contain whitespace.
+	at io.jsonwebtoken.impl.JwtTokenizer.tokenize(JwtTokenizer.java:67) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:370) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at com.example.mongodb.filter.JwtUserFilter.doFilter(JwtUserFilter.java:35) ~[classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+
+2024-05-29T13:48:46.503+08:00 ERROR 12752 --- [MongoDB] [http-nio-8083-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.MalformedJwtException: Compact JWT strings may not contain whitespace.
+	at io.jsonwebtoken.impl.JwtTokenizer.tokenize(JwtTokenizer.java:67) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:370) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at com.example.mongodb.filter.JwtUserFilter.doFilter(JwtUserFilter.java:35) ~[classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at java.base/java.lang.Thread.run(Thread.java:1570) ~[na:na]
+
+2024-05-29T13:49:28.103+08:00  WARN 12752 --- [MongoDB] [http-nio-8083-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.example.mongodb.exception.NoBookFound: {"message":"There is no book with this ISBN!"}]
+2024-05-29T13:51:31.188+08:00  WARN 12752 --- [MongoDB] [http-nio-8083-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.example.mongodb.exception.NoBookFound: {"message":"There is no book with this ISBN!"}]
+2024-05-29T13:52:28.116+08:00  WARN 12752 --- [MongoDB] [http-nio-8083-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.example.mongodb.exception.NoBookFound: {"message":"There is no book with this ISBN!"}]
+2024-05-29T13:52:55.650+08:00  WARN 12752 --- [MongoDB] [http-nio-8083-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.example.mongodb.exception.NoBookFound: {"message":"There is no book with this ISBN!"}]
+2024-05-29T13:58:28.669+08:00  WARN 12752 --- [MongoDB] [http-nio-8083-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.example.mongodb.exception.NoBookFound: {"message":"There is no book with this ISBN!"}]
+2024-05-29T14:01:17.511+08:00  WARN 12752 --- [MongoDB] [http-nio-8083-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.example.mongodb.exception.NoBookFound: {"message":"There is no book with this ISBN!"}]

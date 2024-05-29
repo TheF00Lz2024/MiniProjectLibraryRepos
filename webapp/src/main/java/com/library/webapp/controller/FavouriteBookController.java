@@ -35,8 +35,8 @@ public class FavouriteBookController {
 
     //API for getting saving user favourite book
     @PostMapping("/favouriteBook")
-    public ResponseEntity<FavouriteBook> addUserFavouriteBook(@RequestBody FavouriteBook favouriteBook){
-        return new ResponseEntity<>(favouriteBookService.saveFavouriteBook(favouriteBook), HttpStatus.CREATED);
+    public ResponseEntity<FavouriteBook> addUserFavouriteBook(@RequestHeader("Authorization")String jwtToken, @RequestBody FavouriteBook favouriteBook){
+        return new ResponseEntity<>(favouriteBookService.saveFavouriteBook(jwtToken, favouriteBook), HttpStatus.CREATED);
     }
 
     //API for deleting user favourite book
@@ -53,5 +53,10 @@ public class FavouriteBookController {
     @ExceptionHandler(NoFavouriteBookFound.class)
     public ResponseEntity<String> noFavouriteBookFound(NoFavouriteBookFound message){
         return new ResponseEntity<>(message.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(InternalError.class)
+    public ResponseEntity<String> internalError(InternalError message){
+        return new ResponseEntity<>(message.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

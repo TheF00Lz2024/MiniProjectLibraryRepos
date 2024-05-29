@@ -65,3 +65,8 @@
 2024-05-29T11:25:38.304+08:00  WARN 14692 --- [Login] [http-nio-8081-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
 2024-05-29T11:25:41.010+08:00  WARN 14692 --- [Login] [http-nio-8081-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.ForbiddenAction: {"message":"Cannot delete this User!"}]
 2024-05-29T11:25:59.797+08:00  WARN 14692 --- [Login] [http-nio-8081-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.NoUserFound: {"message":"Incorrect username or password!"}]
+2024-05-29T12:51:46.411+08:00  WARN 14692 --- [Login] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h17m12s396ms743µs200ns).
+2024-05-29T13:12:27.046+08:00  WARN 14692 --- [Login] [http-nio-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.ForbiddenAction: {"message":"Cannot delete this User!"}]
+2024-05-29T13:20:09.667+08:00  INFO 14692 --- [Login] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-29T13:20:09.670+08:00  INFO 14692 --- [Login] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-29T13:20:09.673+08:00  INFO 14692 --- [Login] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
