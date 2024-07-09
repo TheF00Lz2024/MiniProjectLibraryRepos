@@ -8,6 +8,12 @@
                 <mat-label>Username</mat-label>
                 <input matInput type="email" [formControl]="usernameControl" [errorStateMatcher]="matcher"
                     placeholder="Example@example.com" />
+                @if (usernameControl.hasError('email') && !usernameControl.hasError('required')) {
+                <mat-error>Please enter a valid email address</mat-error>
+                }
+                @if (usernameControl.hasError('required')) {
+                <mat-error>Email is <strong>required</strong></mat-error>
+                }
             </mat-form-field>
             <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
                 <mat-label>Password</mat-label>
@@ -17,15 +23,21 @@
                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
                     <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                @if (passwordControl.hasError('required')) {
+                <mat-error>Password is <strong>required</strong></mat-error>
+                }
             </mat-form-field>
             <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
                 <mat-label>Confirm Password</mat-label>
-                <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" [formControl]="confirmPasswordControl"
-                    [errorStateMatcher]="matcher" />
+                <input matInput [type]="hideConfirmPassword ? 'password' : 'text'"
+                    [formControl]="confirmPasswordControl" [errorStateMatcher]="matcher" />
                 <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"
                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
                     <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                @if (confirmPasswordControl.hasError('required')) {
+                <mat-error>Password is <strong>required</strong></mat-error>
+                }
             </mat-form-field>
         </form>
         <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">

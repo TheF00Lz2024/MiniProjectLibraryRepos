@@ -55,6 +55,8 @@ export class AppComponent {
 
   //function to listen child event (sign-up) to hide sign up page
   login($event: boolean) {
+    this.usernameControl.reset();
+    this.passwordControl.reset();
     this.userLogin = $event;
   }
 
