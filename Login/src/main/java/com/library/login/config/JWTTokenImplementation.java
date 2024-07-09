@@ -23,7 +23,7 @@ public class JWTTokenImplementation implements JWTTokenConfiguration {
         // decode the secret and make new Key
         Key newKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
         // creating the jwt token
-        String jwtToken = Jwts.builder().subject("Username: " + user.getUsername() + ", Roles: " + user.getRoles() + ", Login: Success").issuedAt(new Date()).signWith(newKey).compact();
+        String jwtToken = Jwts.builder().subject("Roles: " + user.getRoles() + ", Login: Success").issuedAt(new Date()).signWith(newKey).compact();
         Map<String, String> jwtTokenMap = new HashMap<>();
         // add the created key to map and some additional data to check
         jwtTokenMap.put("token", jwtToken);

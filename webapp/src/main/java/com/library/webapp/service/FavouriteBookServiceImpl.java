@@ -11,7 +11,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -32,7 +31,6 @@ public class FavouriteBookServiceImpl implements FavouriteBookService{
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", jwtToken);
         HttpEntity<Void> entity = new HttpEntity<>(headers);
-
         try{
             ResponseEntity<Book> foundBook = restTemplate.
                     exchange("http://localhost:8083/api/v1/book/"+favouriteBook.getIsbn(), HttpMethod.GET, entity, Book.class);

@@ -39,31 +39,6 @@ public class BookController {
         return new ResponseEntity<>(bookService.getAllBook(), HttpStatus.OK);
     }
 
-    //API for adding new book to DB
-    @PostMapping("/author/book")
-    public ResponseEntity<Book> addBook(@RequestBody BookDTO book){
-        Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName());
-        return new ResponseEntity<>(bookService.addBook(newBook), HttpStatus.CREATED);
-    }
-
-    //API for updating book to DB
-    @PutMapping("/author/book")
-    public ResponseEntity<Book> updateBook(@RequestBody BookDTO book){
-        Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName());
-        return new ResponseEntity<>(bookService.updateBook(newBook), HttpStatus.OK);
-    }
-
-    //API for deleting book from DB
-    @DeleteMapping("/author/book")
-    public ResponseEntity<Book> deleteBook(@RequestParam("isbn")String isbn){
-        return new ResponseEntity<>(bookService.deleteBook(isbn), HttpStatus.OK);
-    }
-
-    @ExceptionHandler(DuplicateISBN.class)
-    public ResponseEntity<String> duplicateIsbn(DuplicateISBN message){
-        return new ResponseEntity<>(message.getMessage(), HttpStatus.FORBIDDEN);
-    }
-
     @ExceptionHandler(NoBookFound.class)
     public ResponseEntity<String> noBookFound(NoBookFound message){
         return new ResponseEntity<>(message.getMessage(), HttpStatus.NOT_FOUND);
