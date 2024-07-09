@@ -11,8 +11,8 @@ public enum Secret {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return secretKey;
     }
-    
+
 }

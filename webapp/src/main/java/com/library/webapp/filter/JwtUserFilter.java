@@ -28,26 +28,26 @@ public class JwtUserFilter extends GenericFilterBean {
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
         final String authHeader = request.getHeader("Authorization");
-        try{
+        try {
             if ("OPTIONS".equals(request.getMethod())) {
                 response.setStatus(HttpServletResponse.SC_OK);
                 filterChain.doFilter(request, response);
             } else {
-                if(authHeader==null || !authHeader.startsWith("Bearer ")){
+                if (authHeader == null || !authHeader.startsWith("Bearer ")) {
                     throw new ServletException("An exception had occur!");
                 }
                 final String token = authHeader.substring(7);
                 SecretKey newKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRETKEY.toString()));
                 Claims claim = Jwts.parser().verifyWith(newKey).build().parseSignedClaims(token).getPayload();
                 String loginStatus = claim.getSubject().split(",")[1].trim();
-                if(!loginStatus.equalsIgnoreCase("Login: Success")){
+                if (!loginStatus.equalsIgnoreCase("Login: Success")) {
                     throw new ServletException("Unknown exception");
                 }
-                request.setAttribute("claim",claim);
-                request.setAttribute("user",servletRequest.getAttribute("username"));
+                request.setAttribute("claim", claim);
+                request.setAttribute("user", servletRequest.getAttribute("username"));
                 filterChain.doFilter(request, response);
             }
-        }catch (Exception exception){
+        } catch (Exception exception) {
             loggerError.error(exception.getMessage());
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); // Set appropriate status code
             response.getWriter().write(exception.getMessage());

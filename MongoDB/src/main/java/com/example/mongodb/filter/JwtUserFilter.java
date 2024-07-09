@@ -28,7 +28,7 @@ public class JwtUserFilter extends GenericFilterBean {
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
         final String authHeader = request.getHeader("Authorization");
-        try{
+        try {
             if ("OPTIONS".equals(request.getMethod())) {
                 response.setStatus(HttpServletResponse.SC_OK);
                 filterChain.doFilter(request, response);
@@ -47,7 +47,7 @@ public class JwtUserFilter extends GenericFilterBean {
                 request.setAttribute("user", servletRequest.getAttribute("username"));
                 filterChain.doFilter(request, response);
             }
-        } catch (Exception exception){
+        } catch (Exception exception) {
             loggerError.error(exception.getMessage());
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); // Set appropriate status code
             response.getWriter().write(exception.getMessage());

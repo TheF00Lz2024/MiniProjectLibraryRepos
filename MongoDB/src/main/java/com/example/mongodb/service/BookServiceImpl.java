@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service("bookServiceImpl")
-public class BookServiceImpl implements BookService{
+public class BookServiceImpl implements BookService {
 
     private static final String NOBOOKFOUNDERRORMESSAGE = "{\"message\":\"There is no book with this ISBN!\"}";
     private final BookRepository bookRepository;
@@ -23,9 +23,9 @@ public class BookServiceImpl implements BookService{
 
     @Override
     public Book addBook(Book book) {
-        if(bookRepository.findById(book.getIsbn()).isEmpty()){
+        if (bookRepository.findById(book.getIsbn()).isEmpty()) {
             return bookRepository.save(book);
-        }else{
+        } else {
             throw new DuplicateISBN("{\"message\":\"This ISBN is already in use!\"}");
         }
     }
@@ -33,9 +33,9 @@ public class BookServiceImpl implements BookService{
     @Override
     public Book getBook(String isbn) {
         Optional<Book> foundBook = bookRepository.findById(isbn);
-        if(foundBook.isEmpty()){
+        if (foundBook.isEmpty()) {
             throw new NoBookFound(NOBOOKFOUNDERRORMESSAGE);
-        }else{
+        } else {
             return foundBook.get();
         }
     }
@@ -48,9 +48,9 @@ public class BookServiceImpl implements BookService{
     @Override
     public Book updateBook(Book book) {
         Optional<Book> foundBook = bookRepository.findById(book.getIsbn());
-        if(foundBook.isEmpty()){
+        if (foundBook.isEmpty()) {
             throw new NoBookFound(NOBOOKFOUNDERRORMESSAGE);
-        }else{
+        } else {
             Book getFoundBook = foundBook.get();
             getFoundBook.setTitle(book.getTitle());
             return bookRepository.save(getFoundBook);
@@ -60,9 +60,9 @@ public class BookServiceImpl implements BookService{
     @Override
     public Book deleteBook(String isbn) {
         Optional<Book> foundBook = bookRepository.findById(isbn);
-        if(foundBook.isEmpty()){
+        if (foundBook.isEmpty()) {
             throw new NoBookFound(NOBOOKFOUNDERRORMESSAGE);
-        }else{
+        } else {
             bookRepository.deleteById(isbn);
             return foundBook.get();
         }

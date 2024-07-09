@@ -9,19 +9,20 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Repository
 public interface FavouriteBookRepository extends CrudRepository<FavouriteBook, String> {
     // get all user fav book
     @Query(value = "SELECT * FROM favouritebook WHERE username=:username", nativeQuery = true)
-    List<FavouriteBook> findUserFavoriteBook(@Param("username")String username);
+    List<FavouriteBook> findUserFavoriteBook(@Param("username") String username);
 
     //get user selected fav book by fav book id and isbn
     @Query(value = "SELECT * FROM favouritebook WHERE username=:username AND isbn=:isbn", nativeQuery = true)
-    List<FavouriteBook> findSelectedFavouriteBook(@Param("username")String username, @Param("isbn")String isbn);
+    List<FavouriteBook> findSelectedFavouriteBook(@Param("username") String username, @Param("isbn") String isbn);
 
     //remove favbook by fav book id and isbn
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM favouritebook WHERE username=:username AND isbn=:isbn", nativeQuery = true)
-    void removeBookFromFavourite(@Param("username")String username, @Param("isbn")String isbn);
+    void removeBookFromFavourite(@Param("username") String username, @Param("isbn") String isbn);
 }

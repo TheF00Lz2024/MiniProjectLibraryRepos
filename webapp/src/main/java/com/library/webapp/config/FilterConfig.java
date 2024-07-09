@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FilterConfig {
-
     @Bean
     public FilterRegistrationBean jwtUserFilter() {
 
@@ -17,5 +16,4 @@ public class FilterConfig {
 
         return filter;
     }
-
 }

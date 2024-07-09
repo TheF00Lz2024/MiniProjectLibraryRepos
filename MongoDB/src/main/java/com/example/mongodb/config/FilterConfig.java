@@ -2,16 +2,12 @@ package com.example.mongodb.config;
 
 import com.example.mongodb.filter.JwtRolesFilter;
 import com.example.mongodb.filter.JwtUserFilter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FilterConfig {
-    @Value("${jwt.secret}")
-    private String secret;
-
     @Bean
     public FilterRegistrationBean jwtUserFilter() {
 

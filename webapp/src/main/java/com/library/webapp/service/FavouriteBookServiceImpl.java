@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service("favouriteBookServiceImpl")
-public class FavouriteBookServiceImpl implements FavouriteBookService{
+public class FavouriteBookServiceImpl implements FavouriteBookService {
     private final FavouriteBookRepository favouritebookRepository;
 
     @Autowired
@@ -31,15 +31,15 @@ public class FavouriteBookServiceImpl implements FavouriteBookService{
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", jwtToken);
         HttpEntity<Void> entity = new HttpEntity<>(headers);
-        try{
+        try {
             ResponseEntity<Book> foundBook = restTemplate.
-                    exchange("http://localhost:8083/api/v1/book/"+favouriteBook.getIsbn(), HttpMethod.GET, entity, Book.class);
-            if(favouritebookRepository.findSelectedFavouriteBook(favouriteBook.getUsername().getUsername(), Objects.requireNonNull(foundBook.getBody()).getIsbn()).isEmpty()){
+                    exchange("http://localhost:8083/api/v1/book/" + favouriteBook.getIsbn(), HttpMethod.GET, entity, Book.class);
+            if (favouritebookRepository.findSelectedFavouriteBook(favouriteBook.getUsername().getUsername(), Objects.requireNonNull(foundBook.getBody()).getIsbn()).isEmpty()) {
                 return favouritebookRepository.save(favouriteBook);
-            }else{
+            } else {
                 throw new DuplicateFavouriteBook("{\"message\":\"This book is already added to Favourite List!\"}");
             }
-        }catch (Exception error){
+        } catch (Exception error) {
             throw new InternalError(error.getMessage());
         }
 
@@ -54,9 +54,9 @@ public class FavouriteBookServiceImpl implements FavouriteBookService{
     @Override
     public FavouriteBook deleteFavouriteBook(String username, String isbn) {
         List<FavouriteBook> getSelectedFavouriteBook = favouritebookRepository.findSelectedFavouriteBook(username, isbn);
-        if(getSelectedFavouriteBook.isEmpty()){
+        if (getSelectedFavouriteBook.isEmpty()) {
             throw new NoFavouriteBookFound("{\"message\":\"No such book found in favourite list!\"}");
-        }else{
+        } else {
             favouritebookRepository.removeBookFromFavourite(username, isbn);
             return getSelectedFavouriteBook.getFirst();
         }

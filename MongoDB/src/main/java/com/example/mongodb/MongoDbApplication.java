@@ -9,23 +9,23 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 @EnableMongoRepositories
-public class MongoDbApplication{
+public class MongoDbApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MongoDbApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MongoDbApplication.class, args);
+    }
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry
-						.addMapping("/**")
-						.allowedOrigins("*")
-						.allowedHeaders("*")
-						.allowedMethods("GET", "PUT", "POST", "DELETE");
-			}
-		};
-	}
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry
+                        .addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedHeaders("*")
+                        .allowedMethods("GET", "PUT", "POST", "DELETE");
+            }
+        };
+    }
 }

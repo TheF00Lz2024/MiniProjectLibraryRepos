@@ -29,3 +29,8 @@
 2024-07-09T13:32:49.153+08:00  INFO 35676 --- [webapp] [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2024-07-09T13:33:20.635+08:00 ERROR 35676 --- [webapp] [http-nio-8082-exec-3] c.library.webapp.filter.JwtUserFilter    : Unknown exception
 2024-07-09T13:33:30.675+08:00  WARN 35676 --- [webapp] [http-nio-8082-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.webapp.exception.NoFavouriteBookFound: {"message":"No such book found in favourite list!"}]
+2024-07-09T13:34:07.035+08:00  WARN 35676 --- [webapp] [http-nio-8082-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.webapp.exception.NoFavouriteBookFound: {"message":"No such book found in favourite list!"}]
+2024-07-09T13:34:15.693+08:00 ERROR 35676 --- [webapp] [http-nio-8082-exec-1] c.library.webapp.filter.JwtUserFilter    : JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2024-07-09T13:37:26.494+08:00  INFO 35676 --- [webapp] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-09T13:37:26.496+08:00  INFO 35676 --- [webapp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-09T13:37:26.501+08:00  INFO 35676 --- [webapp] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
