@@ -23,6 +23,9 @@
                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
                     <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                @if (passwordControl.hasError('pattern') && !passwordControl.hasError('required')) {
+                    <mat-error>Password not <strong>Strong</strong> enough!</mat-error>
+                }
                 @if (passwordControl.hasError('required')) {
                 <mat-error>Password is <strong>required</strong></mat-error>
                 }
@@ -35,18 +38,29 @@
                     [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">
                     <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                @if (confirmPasswordControl.hasError('pattern') && !confirmPasswordControl.hasError('required')) {
+                    <mat-error>Password not <strong>Strong</strong> enough!</mat-error>
+                }
                 @if (confirmPasswordControl.hasError('required')) {
                 <mat-error>Password is <strong>required</strong></mat-error>
                 }
             </mat-form-field>
         </form>
         <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
+            @if (userSignUpForm.valid && (passwordControl.value !== confirmPasswordControl.value)) {
+                <mat-error>Password and Confirm Password <strong>mismatched!</strong></mat-error>
+            }
+        </div>
+        <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
             <button mat-button style="text-align: center; color: blue;" (click)="signUp()" type="button">
                 <u>Back to login</u>
             </button>
         </div>
         <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
-            <button mat-flat-button color="primary" style="text-align: center;" type="button">Create Account</button>
+            <button mat-flat-button color="primary" style="text-align: center;" type="button" (click)="createAccount()"
+            [disabled]="(!userSignUpForm.valid || ( passwordControl.value !== confirmPasswordControl.value))">
+            Create Account
+            </button>
         </div>
     </div>
 </div>

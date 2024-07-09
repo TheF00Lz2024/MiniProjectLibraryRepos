@@ -53,13 +53,20 @@ export class SignUpComponent {
   constructor(private formBuilder: FormBuilder){
     this.userSignUpForm = this.formBuilder.group({
       username: this.formBuilder.control('', [Validators.required, Validators.email]),
-      password: this.formBuilder.control('', [Validators.required]),
-      confirmPassword: this.formBuilder.control('',Validators.required)
+      password: this.formBuilder.control('', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]),
+      confirmPassword: this.formBuilder.control('',[Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)])
     })
   }
 
   // back to login
   signUp() {
     this.backToLogin.emit(true);
+  }
+
+  //create account
+  createAccount(){
+    console.log(this.usernameControl.value);
+    console.log(this.passwordControl.value);
+    console.log(this.confirmPasswordControl.value);
   }
 }
