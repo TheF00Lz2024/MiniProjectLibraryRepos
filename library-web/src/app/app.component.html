@@ -10,24 +10,30 @@
     <h2 style="text-align: center;">
       Login
     </h2>
-    <form style=" justify-content: center; align-items: center;">
+    <form style=" justify-content: center; align-items: center;" [formGroup]="userLoginForm">
       <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
         <mat-label>Username</mat-label>
-        <input matInput />
+        <input matInput type="email" [formControl]="usernameControl" [errorStateMatcher]="matcher"
+        placeholder="Example@example.com" />
       </mat-form-field>
       <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
         <mat-label>Password</mat-label>
-        <input matInput />
+        <input matInput [type]="hidePassword ? 'password' : 'text'" [formControl]="passwordControl"
+            [errorStateMatcher]="matcher" />
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
       <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
-        <button mat-button style="text-align: center; color: blue;" (click)="createdAccount()">
+        <button mat-button style="text-align: center; color: blue;" (click)="createdAccount()" type="button">
           <u>Create an Account</u>
         </button>
       </div>
-      <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
-        <button mat-flat-button color="primary" style="text-align: center;">Log In</button>
-      </div>
     </form>
+    <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
+      <button mat-flat-button color="primary" style="text-align: center;" type="button">Log In</button>
+    </div>
   </div>
 </div>
-<app-sign-up *ngIf="!userLogin"></app-sign-up>
+<app-sign-up *ngIf="!userLogin" (backToLogin)="login($event)"></app-sign-up>

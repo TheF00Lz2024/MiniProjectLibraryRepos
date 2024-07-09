@@ -41,7 +41,7 @@ public class JwtUserFilter extends GenericFilterBean {
                 Claims claim = Jwts.parser().verifyWith(newKey).build().parseSignedClaims(token).getPayload();
                 String loginStatus = claim.getSubject().split(",")[1].trim();
                 if (!loginStatus.equalsIgnoreCase("Login: Success")) {
-                    throw new ServletException("Unknown exception");
+                    throw new ServletException("Unknown exception!");
                 }
                 request.setAttribute("claim", claim);
                 request.setAttribute("user", servletRequest.getAttribute("username"));
