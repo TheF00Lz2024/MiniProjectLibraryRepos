@@ -11,6 +11,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { LoginApiService } from './service/login-api.service';
 import { mergeMap } from 'rxjs';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { SessionStorageService } from './service/session-storage.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -49,7 +50,7 @@ export class AppComponent {
     return this.userLoginForm.get('password') as FormControl;
   }
 
-  constructor(private formBuilder: FormBuilder, private loginAPIService: LoginApiService) {
+  constructor(private formBuilder: FormBuilder, private loginAPIService: LoginApiService, private sessionStorage: SessionStorageService) {
     this.userLoginForm = this.formBuilder.group({
       username: this.formBuilder.control('', [Validators.required, Validators.email]),
       password: this.formBuilder.control('', [Validators.required])
@@ -62,7 +63,11 @@ export class AppComponent {
       .subscribe({
         next: (data) => {
           if(data.message == "Login Successful"){
+            this.sessionStorage.setUsernameSession(this.usernameControl.value);
+            this.sessionStorage.setSessionToken(data.token);
             console.log('You have login!')
+            console.log(this.sessionStorage.getUsernameSession());
+            console.log(this.sessionStorage.getSessionToken());
           }
         }, error:(error)=>{
           console.log(error.error.message);
