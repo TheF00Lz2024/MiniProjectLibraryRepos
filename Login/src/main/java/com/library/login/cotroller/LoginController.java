@@ -52,7 +52,7 @@ public class LoginController {
                 .hashString(password, StandardCharsets.UTF_8)
                 .toString();
         User getuser = userService.getUser(username, hashedPassword);
-        return new ResponseEntity<>(jwtTokenConfiguration.generateToken(getuser), HttpStatus.FOUND);
+        return new ResponseEntity<>(jwtTokenConfiguration.generateToken(getuser), HttpStatus.OK);
     }
 
     //API for removing user

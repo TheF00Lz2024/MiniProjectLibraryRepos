@@ -1275,3 +1275,59 @@ Caused by: java.lang.IllegalArgumentException: object of type com.example.mongod
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140) ~[spring-beans-6.1.8.jar:6.1.8]
 	... 23 common frames omitted
 
+2024-07-09T15:50:44.602+08:00  INFO 40940 --- [MongoDB] [restartedMain] com.example.mongodb.MongoDbApplication   : Starting MongoDbApplication using Java 22.0.1 with PID 40940 (C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\MongoDB\target\classes started by cyh20 in C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\MongoDB)
+2024-07-09T15:50:44.603+08:00  INFO 40940 --- [MongoDB] [restartedMain] com.example.mongodb.MongoDbApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-07-09T15:50:45.281+08:00  INFO 40940 --- [MongoDB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2024-07-09T15:50:45.670+08:00  INFO 40940 --- [MongoDB] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 388 ms. Found 1 MongoDB repository interface.
+2024-07-09T15:50:46.020+08:00  INFO 40940 --- [MongoDB] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2024-07-09T15:50:46.025+08:00  INFO 40940 --- [MongoDB] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-09T15:50:46.025+08:00  INFO 40940 --- [MongoDB] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-09T15:50:46.053+08:00  INFO 40940 --- [MongoDB] [restartedMain] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-07-09T15:50:46.053+08:00  INFO 40940 --- [MongoDB] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1444 ms
+2024-07-09T15:50:46.168+08:00  INFO 40940 --- [MongoDB] [restartedMain] org.mongodb.driver.client                : MongoClient with metadata {"application": {"name": "BookDB"}, "driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='projectUser', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@71a52516, com.mongodb.Jep395RecordCodecProvider@3899983f, com.mongodb.KotlinCodecProvider@7ec81a42]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=bookdb.2dixccw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-47teg4-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='BookDB', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-07-09T15:50:46.198+08:00  INFO 40940 --- [MongoDB] [cluster-ClusterId{value='668cebd65661325c193b2d2c', description='BookDB'}-srv-bookdb.2dixccw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-uh6pdvk-shard-00-01.2dixccw.mongodb.net:27017 to client view of cluster
+2024-07-09T15:50:46.203+08:00  INFO 40940 --- [MongoDB] [cluster-ClusterId{value='668cebd65661325c193b2d2c', description='BookDB'}-srv-bookdb.2dixccw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-uh6pdvk-shard-00-00.2dixccw.mongodb.net:27017 to client view of cluster
+2024-07-09T15:50:46.205+08:00  INFO 40940 --- [MongoDB] [cluster-ClusterId{value='668cebd65661325c193b2d2c', description='BookDB'}-srv-bookdb.2dixccw.mongodb.net] org.mongodb.driver.cluster               : Adding discovered server ac-uh6pdvk-shard-00-02.2dixccw.mongodb.net:27017 to client view of cluster
+2024-07-09T15:50:46.214+08:00  WARN 40940 --- [MongoDB] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-07-09T15:50:46.289+08:00  WARN 40940 --- [MongoDB] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'corsConfigurer' defined in com.example.mongodb.MongoDbApplication: Failed to instantiate [org.springframework.web.servlet.config.annotation.WebMvcConfigurer]: Illegal factory instance for factory method 'corsConfigurer'; instance: com.example.mongodb.MongoDbApplication$$SpringCGLIB$$0
+2024-07-09T15:50:46.293+08:00  INFO 40940 --- [MongoDB] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-07-09T15:50:46.302+08:00  INFO 40940 --- [MongoDB] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-07-09T15:50:46.313+08:00 ERROR 40940 --- [MongoDB] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'corsConfigurer' defined in com.example.mongodb.MongoDbApplication: Failed to instantiate [org.springframework.web.servlet.config.annotation.WebMvcConfigurer]: Illegal factory instance for factory method 'corsConfigurer'; instance: com.example.mongodb.MongoDbApplication$$SpringCGLIB$$0
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1337) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1167) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.8.jar:6.1.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.0.jar:3.3.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.0.jar:3.3.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.0.jar:3.3.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.0.jar:3.3.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.0.jar:3.3.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.0.jar:3.3.0]
+	at com.example.mongodb.MongoDbApplication.main(MongoDbApplication.java:15) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.0.jar:3.3.0]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.config.annotation.WebMvcConfigurer]: Illegal factory instance for factory method 'corsConfigurer'; instance: com.example.mongodb.MongoDbApplication$$SpringCGLIB$$0
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:159) ~[spring-beans-6.1.8.jar:6.1.8]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644) ~[spring-beans-6.1.8.jar:6.1.8]
+	... 22 common frames omitted
+Caused by: java.lang.IllegalArgumentException: object of type com.example.mongodb.MongoDbApplication$$SpringCGLIB$$0 is not an instance of com.example.mongodb.MongoDbApplication
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.checkReceiver(DirectMethodHandleAccessor.java:198) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:99) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140) ~[spring-beans-6.1.8.jar:6.1.8]
+	... 23 common frames omitted
+

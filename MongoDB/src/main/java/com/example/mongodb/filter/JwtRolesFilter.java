@@ -39,13 +39,7 @@ public class JwtRolesFilter extends GenericFilterBean {
                 final String token = authHeader.substring(7);
                 SecretKey newKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRETKEY.toString()));
                 Claims claim = Jwts.parser().verifyWith(newKey).build().parseSignedClaims(token).getPayload();
-                String[] stringData = claim.getSubject().split(",");
-                String loginStatus = stringData[1].trim();
-                String userRoles = stringData[0].trim();
-                if (!loginStatus.equalsIgnoreCase("Login: Success")) {
-                    throw new ServletException("Unknown exception!");
-                }
-                if (!userRoles.equalsIgnoreCase("Roles: Author")) {
+                if (claim.getSubject().equalsIgnoreCase("Roles: Author")) {
                     throw new ServletException("Invalid Role!");
                 }
                 request.setAttribute("claim", claim);

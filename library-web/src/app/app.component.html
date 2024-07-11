@@ -35,14 +35,14 @@
         }
       </mat-form-field>
       <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
-        <button mat-button style="text-align: center; color: blue;" (click)="createdAccount()" type="button">
+        <button mat-button style="text-align: center; color: blue;" (click)="createAccount()" type="button">
           <u>Create an Account</u>
         </button>
       </div>
     </form>
     <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
-      <button mat-flat-button color="primary" style="text-align: center;" type="button">Log In</button>
+      <button mat-flat-button color="primary" style="text-align: center;" type="button" (click)="loginToAccount()">Log In</button>
     </div>
   </div>
 </div>
-<app-sign-up *ngIf="!userLogin" (backToLogin)="login($event)"></app-sign-up>
+<app-sign-up *ngIf="!userLogin" (backToLogin)="backToLogin($event)"></app-sign-up>

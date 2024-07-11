@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { LoginApiService } from '../service/login-api.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -50,7 +51,7 @@ export class SignUpComponent {
   }
 
   //create constructor to build form, use custom services
-  constructor(private formBuilder: FormBuilder){
+  constructor(private formBuilder: FormBuilder, private loginAPIService: LoginApiService){
     this.userSignUpForm = this.formBuilder.group({
       username: this.formBuilder.control('', [Validators.required, Validators.email]),
       password: this.formBuilder.control('', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]),
