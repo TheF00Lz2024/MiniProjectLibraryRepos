@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { LoginApiService } from '../service/login-api.service';
+import { user } from '../model/apiResponse';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -66,8 +67,22 @@ export class SignUpComponent {
 
   //create account
   createAccount(){
-    console.log(this.usernameControl.value);
-    console.log(this.passwordControl.value);
-    console.log(this.confirmPasswordControl.value);
+    const newUser = {
+      username:`${this.usernameControl.value}`,
+      password:`${this.passwordControl.value}`,
+      roles: "User"
+    } as user;
+
+    this.loginAPIService.createUserAccount(newUser)
+      .subscribe({
+        next:(data)=>{
+          alert(`Username: ${data.username} has been created!`);
+          console.log(`Username: ${data.username} has been created!`);
+        }, error:((error)=>{
+          alert(`${error.error.message}`);
+          console.log(`${error.error.message}`);
+        })
+      })
+
   }
 }

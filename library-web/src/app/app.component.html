@@ -41,7 +41,10 @@
       </div>
     </form>
     <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
-      <button mat-flat-button color="primary" style="text-align: center;" type="button" (click)="loginToAccount()">Log In</button>
+      <button mat-flat-button color="primary" style="text-align: center;" type="button" (click)="loginToAccount()"
+      [disabled]="!userLoginForm.valid">
+      Log In
+      </button>
     </div>
   </div>
 </div>

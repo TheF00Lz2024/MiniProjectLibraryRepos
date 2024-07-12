@@ -8,3 +8,9 @@ export interface bookData{
     title: string;
     authorName: string;
 }
+
+export interface user{
+    username: string,
+    password: string,
+    roles: string
+}

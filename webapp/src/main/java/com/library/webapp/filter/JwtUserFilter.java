@@ -39,7 +39,6 @@ public class JwtUserFilter extends GenericFilterBean {
                 final String token = authHeader.substring(7);
                 SecretKey newKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRETKEY.toString()));
                 Claims claim = Jwts.parser().verifyWith(newKey).build().parseSignedClaims(token).getPayload();
-                String loginStatus = claim.getSubject().split(",")[1].trim();
                 request.setAttribute("claim", claim);
                 request.setAttribute("user", servletRequest.getAttribute("username"));
                 filterChain.doFilter(request, response);
