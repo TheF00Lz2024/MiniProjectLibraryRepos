@@ -3,6 +3,7 @@ package com.example.mongodb.controller;
 import com.example.mongodb.exception.NoBookFound;
 import com.example.mongodb.model.Book;
 import com.example.mongodb.service.BookService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,12 @@ public class BookController {
     public ResponseEntity<String> testAPI() {
         return new ResponseEntity<>("{\"message\":\"Hello World!\"}", HttpStatus.OK);
     }
+
+    @GetMapping("/book/user/roles")
+    public ResponseEntity<String> test(HttpServletRequest httpServletRequest){
+        return new ResponseEntity<>(httpServletRequest.getAttribute("claim").toString(), HttpStatus.OK);
+    }
+
 
     // API for getting specific book by isbn
     @GetMapping("/book/{isbn}")
