@@ -24,3 +24,11 @@
 2024-07-15T13:41:45.886+08:00  WARN 19476 --- [Login] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
 2024-07-15T13:41:45.919+08:00  INFO 19476 --- [Login] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
 2024-07-15T13:41:45.926+08:00  INFO 19476 --- [Login] [restartedMain] com.library.login.LoginApplication       : Started LoginApplication in 3.676 seconds (process running for 4.106)
+2024-07-15T13:42:31.215+08:00  INFO 19476 --- [Login] [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-15T13:42:31.216+08:00  INFO 19476 --- [Login] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-15T13:42:31.217+08:00  INFO 19476 --- [Login] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-15T15:45:52.128+08:00  WARN 19476 --- [Login] [http-nio-8081-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-15T15:47:26.120+08:00  WARN 19476 --- [Login] [http-nio-8081-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-15T15:47:29.336+08:00  WARN 19476 --- [Login] [http-nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-15T16:30:00.571+08:00  WARN 19476 --- [Login] [http-nio-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.NoUserFound: {"message":"Incorrect username or password!"}]
+2024-07-15T16:30:08.142+08:00  WARN 19476 --- [Login] [http-nio-8081-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.NoUserFound: {"message":"Incorrect username or password!"}]

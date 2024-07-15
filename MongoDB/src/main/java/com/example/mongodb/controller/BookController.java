@@ -26,9 +26,11 @@ public class BookController {
         return new ResponseEntity<>("{\"message\":\"Hello World!\"}", HttpStatus.OK);
     }
 
-    @GetMapping("/book/user/roles")
-    public ResponseEntity<String> test(HttpServletRequest httpServletRequest){
-        return new ResponseEntity<>(httpServletRequest.getAttribute("claim").toString(), HttpStatus.OK);
+    @GetMapping("/book/user/role")
+    public ResponseEntity<String> getUserRole(HttpServletRequest httpServletRequest){
+        String claim = httpServletRequest.getAttribute("claim").toString();
+        String role = claim.split(",")[0].split(":")[1].trim();
+        return new ResponseEntity<>("{\"role\":\""+role+"\"}", HttpStatus.OK);
     }
 
 

@@ -81,21 +81,21 @@ export class SignUpComponent {
     } as user;
     this.showLoading = true;
 
-    // show the effect of loading
-    setTimeout(() => {
-      this.loginAPIService.createUserAccount(newUser)
-        .subscribe({
-          next: (data) => {
+    this.loginAPIService.createUserAccount(newUser)
+      .subscribe({
+        next: (data) => {
+          // show the effect of loading
+          setTimeout(() => {
             alert(`Username: ${data.username} has been created!\nBack the login page!`);
             console.log(`Username: ${data.username} has been created!`);
+            this.showLoading = false;
             this.signUp();
-          }, error: ((error) => {
-            alert(`${error.error.message}`);
-            console.log(`${error.error.message}`);
-          })
+          }, 3000);
+        }, error: ((error) => {
+          alert(`${error.error.message}`);
+          console.log(`${error.error.message}`);
+          this.showLoading = false;
         })
-      this.showLoading = false;
-    }, 3000);
-
+      })
   }
 }

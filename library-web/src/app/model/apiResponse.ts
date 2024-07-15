@@ -14,3 +14,7 @@ export interface user{
     password: string,
     roles: string
 }
+
+export interface userRole{
+    role: string
+}

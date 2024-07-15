@@ -11,15 +11,23 @@ export class SessionStorageService {
     sessionStorage.setItem('username', username);
   }
 
-  setSessionToken(token: string){
+  setTokenSession(token: string){
     sessionStorage.setItem('token', token);
+  }
+
+  setUserRoleSession(role: string){
+    sessionStorage.setItem('role', role);
   }
 
   getUsernameSession(){
     return sessionStorage.getItem('username');
   }
 
-  getSessionToken(){
-    return sessionStorage.getItem('token')
+  getTokenSession(){
+    return sessionStorage.getItem('token');
+  }
+
+  getUserRoleSession(){
+    return sessionStorage.getItem('role');
   }
 }
