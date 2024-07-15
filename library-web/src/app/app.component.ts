@@ -10,9 +10,9 @@ import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Reacti
 import { ErrorStateMatcher } from '@angular/material/core';
 import { LoginApiService } from './service/login-api.service';
 import { mergeMap } from 'rxjs';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { SessionStorageService } from './service/session-storage.service';
 import { LibraryApiService } from './service/library-api.service';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -31,7 +31,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MatIconModule,
     CommonModule,
     SignUpComponent,
-    ReactiveFormsModule],
+    ReactiveFormsModule,
+    MatProgressSpinner],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -41,6 +42,9 @@ export class AppComponent {
   // hide password and confirm password
   hidePassword: boolean = false;
   matcher = new MyErrorStateMatcher();
+
+  // show loading
+  showLoading: boolean = false;
 
   //create form group for log in
   userLoginForm: FormGroup;
@@ -60,19 +64,25 @@ export class AppComponent {
 
   //function for login to account
   loginToAccount() {
+    // show the loading 
+    this.showLoading = true;
     this.loginAPIService.getUserLogin(this.usernameControl.value, this.passwordControl.value)
       .pipe(mergeMap((data) => {
-        console.log(`This is the session token: ${data.token}`);
         this.sessionStorage.setTokenSession(data.token);
         return this.libraryApiService.getUserRoles(data.token);
       })).subscribe({
         next: (data) => {
+          // show the effect of loading
+          setTimeout(() => {
             this.sessionStorage.setUsernameSession(this.usernameControl.value);
             this.sessionStorage.setUserRoleSession(data.role);
             console.log("You have successfully login");
+            this.showLoading = false;
+          }, 3000);
         }, error: (error) => {
           console.log(error.error.message);
           alert(error.error.message);
+          this.showLoading = false;
         }
       })
   }
