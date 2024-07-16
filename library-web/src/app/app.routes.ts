@@ -4,7 +4,7 @@ import { ViewAllUserComponent } from './view-all-user/view-all-user.component';
 import { AddUserComponent } from './add-user/add-user.component';
 
 export const routes: Routes = [
-    {path: 'view-all-book', component: ViewAllBookComponent},
+    {path: '', component: ViewAllBookComponent},
     {path: 'view-all-user', component: ViewAllUserComponent},
     {path: 'add-user', component: AddUserComponent},
 ];
