@@ -5,7 +5,7 @@
   <span>Library App</span>
 </mat-toolbar>
 
-<div style="display: flex; justify-content: center; align-items: center; height: 90%;" *ngIf="userLogin">
+<div style="display: flex; justify-content: center; align-items: center; height: 90%;" *ngIf="userLogin && !userLoginSuccess">
   <div class="container" style="width: 80%; background-color: bisque;">
     <h2 style="text-align: center;">
       Login
@@ -50,6 +50,8 @@
 </div>
 
 <app-sign-up *ngIf="!userLogin" (backToLogin)="backToLogin($event)"></app-sign-up>
+
+<app-welcome-page *ngIf="userLoginSuccess"></app-welcome-page>
 
 <div id="overlay" *ngIf="showLoading">
   <mat-spinner></mat-spinner>

@@ -13,6 +13,7 @@ import { mergeMap } from 'rxjs';
 import { SessionStorageService } from './service/session-storage.service';
 import { LibraryApiService } from './service/library-api.service';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -32,7 +33,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     CommonModule,
     SignUpComponent,
     ReactiveFormsModule,
-    MatProgressSpinner],
+    MatProgressSpinner,
+    WelcomePageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -45,6 +47,9 @@ export class AppComponent {
 
   // show loading
   showLoading: boolean = false;
+
+  // hide welcome page (only show when user login successful)
+  userLoginSuccess: boolean = false;
 
   //create form group for log in
   userLoginForm: FormGroup;
@@ -77,11 +82,17 @@ export class AppComponent {
             this.sessionStorage.setUsernameSession(this.usernameControl.value);
             this.sessionStorage.setUserRoleSession(data.role);
             console.log("You have successfully login");
+            this.userLoginSuccess = true;
             this.showLoading = false;
           }, 3000);
         }, error: (error) => {
-          console.log(error.error.message);
-          alert(error.error.message);
+          if(error.status == 0){
+            alert("Please send support ticket to helpdesk!");
+            console.log("Unable to connact to server!");
+          }else{
+            console.log(error.error.message);
+            alert(error.error.message);
+          }
           this.showLoading = false;
         }
       })

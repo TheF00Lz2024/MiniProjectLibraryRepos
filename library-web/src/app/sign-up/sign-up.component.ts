@@ -92,8 +92,13 @@ export class SignUpComponent {
             this.signUp();
           }, 3000);
         }, error: ((error) => {
-          alert(`${error.error.message}`);
-          console.log(`${error.error.message}`);
+          if(error.status == 0){
+            alert("Please send support ticket to helpdesk!");
+            console.log("Unable to connact to server!");
+          }else{
+            console.log(error.error.message);
+            alert(error.error.message);
+          }
           this.showLoading = false;
         })
       })
