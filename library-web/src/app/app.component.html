@@ -2,10 +2,13 @@
   <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button> -->
-  <span>Library App</span>
+  <span>
+    <strong>Library App</strong>
+  </span>
 </mat-toolbar>
 
-<div style="display: flex; justify-content: center; align-items: center; height: 95%;" *ngIf="userLogin && !userLoginSuccess">
+<div style="display: flex; justify-content: center; align-items: center; height: 95%;"
+  *ngIf="userLogin && !userLoginSuccess">
   <div class="container" style="width: 80%; background-color: bisque;">
     <h2 style="text-align: center;">
       Login
@@ -14,24 +17,24 @@
       <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
         <mat-label>Username</mat-label>
         <input matInput type="email" [formControl]="usernameControl" [errorStateMatcher]="matcher"
-        placeholder="Example@example.com" />
+          placeholder="Example@example.com" />
         @if (usernameControl.hasError('email') && !usernameControl.hasError('required')) {
-          <mat-error>Please enter a valid email address</mat-error>
+        <mat-error>Please enter a valid email address</mat-error>
         }
         @if (usernameControl.hasError('required')) {
-          <mat-error>Email is <strong>required</strong></mat-error>
+        <mat-error>Email is <strong>required</strong></mat-error>
         }
       </mat-form-field>
       <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
         <mat-label>Password</mat-label>
         <input matInput [type]="hidePassword ? 'password' : 'text'" [formControl]="passwordControl"
-            [errorStateMatcher]="matcher" />
-        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
-            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          [errorStateMatcher]="matcher" />
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         @if (passwordControl.hasError('required')) {
-          <mat-error>Password is <strong>required</strong></mat-error>
+        <mat-error>Password is <strong>required</strong></mat-error>
         }
       </mat-form-field>
       <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
@@ -42,8 +45,8 @@
     </form>
     <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
       <button mat-flat-button color="primary" style="text-align: center;" type="button" (click)="loginToAccount()"
-      [disabled]="!userLoginForm.valid">
-      Log In
+        [disabled]="!userLoginForm.valid">
+        Log In
       </button>
     </div>
   </div>

@@ -8,10 +8,7 @@
 }
 
 .example-sidenav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 15%;
+    width: 20%;
     background: bisque;
 }
 
@@ -21,4 +18,10 @@
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+.routerLinkItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

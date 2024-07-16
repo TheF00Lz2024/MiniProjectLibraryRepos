@@ -1,7 +1,27 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
-        Sidenav
+        <div class="routerLinkItem">
+            <a routerLink="/view-all-book" routerLinkActive="active">
+                View All Book
+            </a>
+        </div>
+        <div *ngIf="userRole == 'Admin'" class="routerLinkItem">
+            <a routerLink="/view-all-user">
+                View All User
+            </a>
+        </div>
+        <div *ngIf="userRole == 'Admin'" class="routerLinkItem">
+            <a routerLink="/add-user">
+                Add User
+            </a>
+        </div>
+        <div class="routerLinkItem">
+            <a routerLink="/">
+                Logout
+            </a>
+        </div>
     </mat-sidenav>
+    <router-outlet></router-outlet>
 </mat-sidenav-container>
 <mat-toolbar class="example-footer">
     <mat-icon>copyright</mat-icon>
