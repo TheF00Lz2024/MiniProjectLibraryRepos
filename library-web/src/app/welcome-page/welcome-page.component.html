@@ -2,7 +2,7 @@
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
         <div class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
             true}">
-            <button routerLink="/" mat-button style="text-align: center; color: blue; width: 100%;" type="button">
+            <button routerLink="/view-all-book" mat-button style="text-align: center; color: blue; width: 100%;" type="button">
                 View All Book
             </button>
         </div>
@@ -20,7 +20,7 @@
         </div>
         <div class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
             true}">
-            <button mat-button style="text-align: center; color: blue; width: 100%;" type="button">
+            <button routerLink="/" mat-button style="text-align: center; color: blue; width: 100%;" type="button" (click)="logout()">
                 Logout
             </button>
         </div>

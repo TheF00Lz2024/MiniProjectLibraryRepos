@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,9 +25,17 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class WelcomePageComponent {
 
+  //Output event for logging out
+  @Output() userLogout = new EventEmitter<boolean>();
+
   //get user role
   userRole: string = this.sessionStorage.getUserRoleSession()!;
 
   constructor(private sessionStorage: SessionStorageService){}
+
+  //user logout event 
+  logout(){
+    this.userLogout.emit(false);
+  }
 
 }

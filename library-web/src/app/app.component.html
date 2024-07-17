@@ -54,7 +54,7 @@
 
 <app-sign-up *ngIf="!userLogin" (backToLogin)="backToLogin($event)"></app-sign-up>
 
-<app-welcome-page *ngIf="userLoginSuccess"></app-welcome-page>
+<app-welcome-page *ngIf="userLoginSuccess" (userLogout)="userLogout($event)"></app-welcome-page>
 
 <div id="overlay" *ngIf="showLoading">
   <mat-spinner></mat-spinner>

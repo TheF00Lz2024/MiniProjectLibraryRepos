@@ -14,6 +14,7 @@ import { SessionStorageService } from './service/session-storage.service';
 import { LibraryApiService } from './service/library-api.service';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { Router } from '@angular/router';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -60,7 +61,13 @@ export class AppComponent {
     return this.userLoginForm.get('password') as FormControl;
   }
 
-  constructor(private formBuilder: FormBuilder, private loginAPIService: LoginApiService, private libraryApiService: LibraryApiService, private sessionStorage: SessionStorageService) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private loginAPIService: LoginApiService, 
+    private libraryApiService: LibraryApiService, 
+    private sessionStorage: SessionStorageService,
+    private router: Router
+  ) {
     this.userLoginForm = this.formBuilder.group({
       username: this.formBuilder.control('', [Validators.required, Validators.email]),
       password: this.formBuilder.control('', [Validators.required])
@@ -81,7 +88,7 @@ export class AppComponent {
           setTimeout(() => {
             this.sessionStorage.setUsernameSession(this.usernameControl.value);
             this.sessionStorage.setUserRoleSession(data.role);
-            console.log("You have successfully login");
+            this.router.navigate(['/', 'view-all-book']);
             this.userLoginSuccess = true;
             this.showLoading = false;
           }, 3000);
@@ -108,5 +115,18 @@ export class AppComponent {
   //function for creating account
   createAccount() {
     this.userLogin = false;
+  }
+
+  //function to listen to child event (welcome-page) to hide login successfull page
+  userLogout($event: boolean){
+    this.showLoading = true;
+    setTimeout(()=>{
+      window.sessionStorage.clear();
+      this.usernameControl.reset();
+      this.passwordControl.reset();
+      alert("You have logout successfully!")
+      this.showLoading = false;
+      this.userLoginSuccess = $event;
+    },3000);
   }
 }
