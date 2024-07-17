@@ -8,7 +8,7 @@
 }
 
 .example-sidenav {
-    width: 10%;
+    width: 20%;
     background: bisque;
 }
 
@@ -24,4 +24,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.active-link{
+    background-color: lightgray;
 }

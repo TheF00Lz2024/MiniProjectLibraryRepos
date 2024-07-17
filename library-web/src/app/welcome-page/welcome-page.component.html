@@ -1,23 +1,27 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
-        <div class="routerLinkItem">
-            <a routerLink="/">
+        <div class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}">
+            <button routerLink="/" mat-button style="text-align: center; color: blue; width: 100%;" type="button">
                 View All Book
-            </a>
+            </button>
         </div>
-        <div *ngIf="userRole == 'Admin'" class="routerLinkItem">
-            <a routerLink="view-all-user">
+        <div *ngIf="userRole == 'Admin'" class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}">
+            <button routerLink="/view-all-user" mat-button style="text-align: center; color: blue; width: 100%;" type="button">
                 View All User
-            </a>
+            </button>
         </div>
-        <div *ngIf="userRole == 'Admin'" class="routerLinkItem">
-            <a routerLink="add-user">
+        <div *ngIf="userRole == 'Admin'" class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}">
+            <button routerLink="/add-user" mat-button style="text-align: center; color: blue; width: 100%;" type="button">
                 Add User
-            </a>
+            </button>
         </div>
-        <div class="routerLinkItem">
-            <button mat-button style="text-align: center; color: blue;" type="button">
-                <u>Logout</u>
+        <div class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}">
+            <button mat-button style="text-align: center; color: blue; width: 100%;" type="button">
+                Logout
             </button>
         </div>
     </mat-sidenav>
