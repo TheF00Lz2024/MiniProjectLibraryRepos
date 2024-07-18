@@ -40,21 +40,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User deleteUser(String username, String userRoles, String deleteRoles) {
-        if (userRoles.equalsIgnoreCase("Admin")) {
-            if (deleteRoles.equalsIgnoreCase("User")) {
-                throw new ForbiddenAction("{\"message\":\"Cannot delete this User!\"}");
-            } else {
-                return deleteUserFunction(username, deleteRoles);
-            }
-        } else if (userRoles.equalsIgnoreCase("User")) {
-            if (deleteRoles.equalsIgnoreCase("User")) {
-                return deleteUserFunction(username, deleteRoles);
-            } else {
-                throw new ForbiddenAction("{\"message\":\"Forbidden delete of Account!\"}");
-            }
-        } else {
-            throw new ForbiddenAction("{\"message\":\"Forbidden delete of Account!\"}");
-        }
+//        if (userRoles.equalsIgnoreCase("Admin")) {
+//            if (deleteRoles.equalsIgnoreCase("User")) {
+//                throw new ForbiddenAction("{\"message\":\"Cannot delete this User!\"}");
+//            } else {
+//                return deleteUserFunction(username, deleteRoles);
+//            }
+//        } else if (userRoles.equalsIgnoreCase("User")) {
+//            if (deleteRoles.equalsIgnoreCase("User")) {
+//                return deleteUserFunction(username, deleteRoles);
+//            } else {
+//                throw new ForbiddenAction("{\"message\":\"Forbidden delete of Account!\"}");
+//            }
+//        } else {
+//            throw new ForbiddenAction("{\"message\":\"Forbidden delete of Account!\"}");
+//        }
+        return deleteUserFunction(username, deleteRoles);
+
     }
 
     private User deleteUserFunction(String username, String roles) {
