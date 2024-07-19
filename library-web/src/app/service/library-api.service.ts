@@ -12,17 +12,18 @@ export class LibraryApiService {
 
   loginAPIUrl = "http://localhost:8083/api/v1/book";
 
-  getUserRoles(token: string): Observable<userRole>{
-    const header = 
-      new HttpHeaders()
-      .set('Authorization',`Bearer ${token}`);
-    return this.httpClient.get<userRole>(`${this.loginAPIUrl}/user/role`,{'headers': header});
+  getHttpHeader(): HttpHeaders{
+    return new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`);
+  }
+
+  getUserRoles(): Observable<userRole>{
+    return this.httpClient.get<userRole>(`${this.loginAPIUrl}/user/role`, {'headers': this.getHttpHeader()});
   }
   
   getAllBook(token: string): Observable<bookData[]>{
     const header = 
       new HttpHeaders()
         .set('Authorization',`Bearer ${token}`);
-    return this.httpClient.get<bookData[]>(`${this.loginAPIUrl}`,{'headers': header});
+    return this.httpClient.get<bookData[]>(`${this.loginAPIUrl}`,{'headers': this.getHttpHeader()});
   }
 }

@@ -81,7 +81,7 @@ export class AppComponent {
     this.loginAPIService.getUserLogin(this.usernameControl.value, this.passwordControl.value)
       .pipe(mergeMap((data) => {
         this.sessionStorage.setTokenSession(data.token);
-        return this.libraryApiService.getUserRoles(data.token);
+        return this.libraryApiService.getUserRoles();
       })).subscribe({
         next: (data) => {
           // show the effect of loading
