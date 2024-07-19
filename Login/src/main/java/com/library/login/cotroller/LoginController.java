@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -44,7 +45,7 @@ public class LoginController {
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
     }
 
-    //API to get User
+    //API to get User for login
     @GetMapping("/user")
     public ResponseEntity<Map<String, String>> loginUser(@RequestParam("username") String username, @RequestParam("password") String password) {
         //hash user password
@@ -53,6 +54,11 @@ public class LoginController {
                 .toString();
         User getuser = userService.getUser(username, hashedPassword);
         return new ResponseEntity<>(jwtTokenConfiguration.generateToken(getuser), HttpStatus.OK);
+    }
+
+    @GetMapping("/all-user")
+    public ResponseEntity<List<User>> getAllUser() {
+        return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
     }
 
     //API for removing user

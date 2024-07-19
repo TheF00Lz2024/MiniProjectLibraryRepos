@@ -1,4 +1,4 @@
-package com.example.mongodb.filter;
+package com.library.login.filter;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -17,11 +17,11 @@ import org.springframework.web.filter.GenericFilterBean;
 import javax.crypto.SecretKey;
 import java.io.IOException;
 
-import static com.example.mongodb.model.Secret.SECRETKEY;
+import static com.library.login.model.Secret.SECRETKEY;
 
-public class JwtRolesFilter extends GenericFilterBean {
+public class JwtAdminFilter extends GenericFilterBean {
 
-    Logger loggerError = LoggerFactory.getLogger(JwtRolesFilter.class);
+    Logger loggerError = LoggerFactory.getLogger(JwtAdminFilter.class);
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException {
@@ -39,7 +39,7 @@ public class JwtRolesFilter extends GenericFilterBean {
                 final String token = authHeader.substring(7);
                 SecretKey newKey = Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRETKEY.toString()));
                 Claims claim = Jwts.parser().verifyWith(newKey).build().parseSignedClaims(token).getPayload();
-                if (!claim.getSubject().equalsIgnoreCase("Roles: Author")) {
+                if (!claim.getSubject().equalsIgnoreCase("Roles: Admin")) {
                     throw new ServletException("Invalid Role!");
                 }
                 request.setAttribute("claim", claim);

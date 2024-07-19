@@ -1,7 +1,6 @@
 package com.library.login.service;
 
 import com.library.login.exception.DuplicateUserId;
-import com.library.login.exception.ForbiddenAction;
 import com.library.login.exception.NoUserFound;
 import com.library.login.model.User;
 import com.library.login.repository.UserRepository;
@@ -36,6 +35,11 @@ public class UserServiceImpl implements UserService {
         } else {
             return foundUser.getFirst();
         }
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        return userRepository.getAllUser();
     }
 
     @Override
