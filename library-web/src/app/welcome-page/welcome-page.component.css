@@ -5,6 +5,7 @@
     bottom: 5%;
     left: 0%;
     right: 0%;
+    z-index: 1;
 }
 
 .example-sidenav {
@@ -28,4 +29,8 @@
 
 .active-link{
     background-color: lightgray;
+}
+
+.mat-drawer.mat-drawer-side {
+    z-index: 1;
 }

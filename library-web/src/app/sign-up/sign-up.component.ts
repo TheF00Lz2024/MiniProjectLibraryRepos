@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -86,6 +86,9 @@ export class SignUpComponent {
         next: (data) => {
           // show the effect of loading
           setTimeout(() => {
+            this.usernameControl.reset();
+            this.passwordControl.reset();
+            this.confirmPasswordControl.reset();
             alert(`Username: ${data.username} has been created!\nBack the login page!`);
             console.log(`Username: ${data.username} has been created!`);
             this.showLoading = false;
@@ -94,7 +97,7 @@ export class SignUpComponent {
         }, error: ((error) => {
           if(error.status == 0){
             alert("Please send support ticket to helpdesk!");
-            console.log("Unable to connact to server!");
+            console.log("Unable to connect to server!");
           }else{
             console.log(error.error.message);
             alert(error.error.message);
