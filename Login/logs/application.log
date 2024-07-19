@@ -3,3 +3,6 @@
 2024-07-19T08:58:01.508+08:00  INFO 15736 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 35 ms
 2024-07-19T09:28:28.635+08:00  WARN 15736 --- [Login] [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.NoUserFound: {"message":"Incorrect username or password!"}]
 2024-07-19T09:34:56.932+08:00  WARN 15736 --- [Login] [http-nio-8081-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-19T14:39:04.396+08:00  WARN 15736 --- [Login] [http-nio-8081-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-19T14:39:48.085+08:00  WARN 15736 --- [Login] [http-nio-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-19T14:42:16.537+08:00  WARN 15736 --- [Login] [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.NoUserFound: {"message":"Incorrect username or password!"}]
