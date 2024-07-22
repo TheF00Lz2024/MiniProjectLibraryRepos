@@ -1,0 +1,20 @@
+.mat-column-username {
+    border-right: 1px solid currentColor;
+    text-align: center;
+}
+
+.mat-column-roles {
+    border-right: 1px solid currentColor;
+    text-align: center;
+}
+
+.mat-column-edit {
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+}
+
+.table-container{
+    height: 316px;
+    overflow: auto;
+}
