@@ -274,3 +274,37 @@ io.jsonwebtoken.security.SignatureException: JWT signature does not match locall
 2024-07-22T10:42:25.850+08:00  INFO 17960 --- [Login] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
 2024-07-22T10:42:31.208+08:00  INFO 14752 --- [Login] [restartedMain] com.library.login.LoginApplication       : Starting LoginApplication using Java 22.0.1 with PID 14752 (C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\Login\target\classes started by cyh20 in C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\Login)
 2024-07-22T10:42:31.211+08:00  INFO 14752 --- [Login] [restartedMain] com.library.login.LoginApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-22T10:42:36.193+08:00  INFO 9836 --- [Login] [restartedMain] com.library.login.LoginApplication       : Starting LoginApplication using Java 22.0.1 with PID 9836 (C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\Login\target\classes started by cyh20 in C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\Login)
+2024-07-22T10:42:36.197+08:00  INFO 9836 --- [Login] [restartedMain] com.library.login.LoginApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-22T10:42:36.281+08:00  INFO 9836 --- [Login] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-22T10:42:36.282+08:00  INFO 9836 --- [Login] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-22T10:42:37.400+08:00  INFO 9836 --- [Login] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-22T10:42:37.481+08:00  INFO 9836 --- [Login] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 1 JPA repository interface.
+2024-07-22T10:42:38.533+08:00  INFO 9836 --- [Login] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-07-22T10:42:38.563+08:00  INFO 9836 --- [Login] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-22T10:42:38.563+08:00  INFO 9836 --- [Login] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-07-22T10:42:38.697+08:00  INFO 9836 --- [Login] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-22T10:42:38.698+08:00  INFO 9836 --- [Login] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2415 ms
+2024-07-22T10:42:39.242+08:00  INFO 9836 --- [Login] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-22T10:42:39.326+08:00  INFO 9836 --- [Login] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-07-22T10:42:39.366+08:00  INFO 9836 --- [Login] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-07-22T10:42:39.645+08:00  INFO 9836 --- [Login] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-22T10:42:39.678+08:00  INFO 9836 --- [Login] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-22T10:42:40.067+08:00  INFO 9836 --- [Login] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@695a4419
+2024-07-22T10:42:40.070+08:00  INFO 9836 --- [Login] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-22T10:42:40.142+08:00  WARN 9836 --- [Login] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-22T10:42:41.084+08:00  INFO 9836 --- [Login] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-22T10:42:41.141+08:00  INFO 9836 --- [Login] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-22T10:42:41.431+08:00  INFO 9836 --- [Login] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-07-22T10:42:41.568+08:00  WARN 9836 --- [Login] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-22T10:42:42.357+08:00  INFO 9836 --- [Login] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-22T10:42:42.429+08:00  INFO 9836 --- [Login] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-07-22T10:42:42.454+08:00  INFO 9836 --- [Login] [restartedMain] com.library.login.LoginApplication       : Started LoginApplication in 7.067 seconds (process running for 7.923)
+2024-07-22T10:42:46.663+08:00  INFO 9836 --- [Login] [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-22T10:42:46.663+08:00  INFO 9836 --- [Login] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-22T10:42:46.664+08:00  INFO 9836 --- [Login] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-22T10:42:46.727+08:00 ERROR 9836 --- [Login] [http-nio-8081-exec-2] c.library.login.filter.JwtAdminFilter    : JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2024-07-22T10:42:52.410+08:00 ERROR 9836 --- [Login] [http-nio-8081-exec-4] c.library.login.filter.JwtAdminFilter    : JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2024-07-22T10:42:59.103+08:00  WARN 9836 --- [Login] [http-nio-8081-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.ForbiddenAction: {"message":"Invalid Action!"}]
+2024-07-22T10:43:12.130+08:00 ERROR 9836 --- [Login] [http-nio-8081-exec-7] c.library.login.filter.JwtAdminFilter    : An exception had occur!
+2024-07-22T10:43:27.731+08:00  WARN 9836 --- [Login] [http-nio-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.ForbiddenAction: {"message":"Invalid Action!"}]
