@@ -20,10 +20,7 @@ export class LibraryApiService {
     return this.httpClient.get<userRole>(`${this.loginAPIUrl}/user/role`, {'headers': this.getHttpHeader()});
   }
   
-  getAllBook(token: string): Observable<bookData[]>{
-    const header = 
-      new HttpHeaders()
-        .set('Authorization',`Bearer ${token}`);
+  getAllBook(): Observable<bookData[]>{
     return this.httpClient.get<bookData[]>(`${this.loginAPIUrl}`,{'headers': this.getHttpHeader()});
   }
 }
