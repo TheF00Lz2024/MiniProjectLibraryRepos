@@ -41,3 +41,7 @@
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     </div>
 </div>
+
+<div id="overlay" *ngIf="showLoading">
+    <mat-spinner></mat-spinner>
+</div>

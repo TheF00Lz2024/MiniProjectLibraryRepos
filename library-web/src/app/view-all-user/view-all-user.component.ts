@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AdminApiService } from '../service/admin-api.service';
 import { user } from '../model/apiResponse';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-view-all-user',
@@ -17,12 +19,17 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    CommonModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './view-all-user.component.html',
   styleUrl: './view-all-user.component.css'
 })
 export class ViewAllUserComponent implements OnInit {
+
+  //show loading effect
+  showLoading: boolean = true;
 
   // set up the column name for the table
   displayedColumns: string[] = ['username', 'roles', 'edit'];
@@ -34,17 +41,8 @@ export class ViewAllUserComponent implements OnInit {
 
   //bind the table render to ng OnInit event
   ngOnInit(): void {
-    // call API service to get all user data
-    this.adminAPI.getAllUser()
-      .subscribe({
-        next: (data) => {
-          this.dataSource = new MatTableDataSource(data);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        }, error: (error) => {
-          console.log(error.error.message);
-        }
-      })
+    this.showLoading = true;
+    // this.getDataSource();
   }
 
   // filter event to filter by username
@@ -60,9 +58,41 @@ export class ViewAllUserComponent implements OnInit {
   //create constructor to build form, use custom services
   constructor(private adminAPI: AdminApiService) { }
 
+  //create a function to call the database and update the datasource
+  getDataSource(){
+    // call API service to get all user data
+    this.adminAPI.getAllUser()
+      .subscribe({
+        next: (data) => {
+          setTimeout(() => {
+            this.dataSource = new MatTableDataSource(data);
+            this.dataSource.paginator = this.paginator;
+            this.showLoading = false;
+          }, 3000)
+        }, error: (error) => {
+          console.log(error.error.message);
+          this.showLoading = false;
+        }
+      })
+  }
+
   //button event to delete user account
   deleteUserAccount(username: string) {
-    console.log(username);
+    this.showLoading = true;
+    this.adminAPI.deleteUser(username)
+      .subscribe({
+        next: (data) => {
+          setTimeout(() => {
+            alert(`${username} account has been deleted!`);
+            // call function to update datasource
+            this.getDataSource();
+          }, 3000);
+        }, error: (error) => {
+          console.log(error.error.message);
+          alert(error.error.message);
+          this.showLoading = false;
+        }
+      })
   }
 
 }
