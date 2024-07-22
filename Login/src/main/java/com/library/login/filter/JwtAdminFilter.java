@@ -55,7 +55,7 @@ public class JwtAdminFilter extends GenericFilterBean {
             loggerError.error(exception.getMessage());
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); // Set appropriate status code
             response.getWriter().write("Something went wrong please try again!");
-        } catch (Exception exception){
+        } catch (Exception exception) {
             loggerError.error(exception.getMessage());
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR); // Set appropriate status code
             response.getWriter().write("Unknown error please contact admin!");

@@ -66,7 +66,7 @@ export class AppComponent {
     private loginAPIService: LoginApiService, 
     private libraryApiService: LibraryApiService, 
     private sessionStorage: SessionStorageService,
-    private router: Router
+    private router: Router,
   ) {
     this.userLoginForm = this.formBuilder.group({
       username: this.formBuilder.control('', [Validators.required, Validators.email]),
