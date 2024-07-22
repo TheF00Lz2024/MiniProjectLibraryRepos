@@ -3,7 +3,6 @@ package com.library.login.cotroller;
 import com.google.common.hash.Hashing;
 import com.library.login.config.JWTTokenConfiguration;
 import com.library.login.exception.DuplicateUserId;
-import com.library.login.exception.ForbiddenAction;
 import com.library.login.exception.NoUserFound;
 import com.library.login.model.User;
 import com.library.login.service.UserService;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -56,20 +54,6 @@ public class LoginController {
         return new ResponseEntity<>(jwtTokenConfiguration.generateToken(getuser), HttpStatus.OK);
     }
 
-    @GetMapping("/all-user")
-    public ResponseEntity<List<User>> getAllUser() {
-        return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
-    }
-
-    //API for removing user
-    @DeleteMapping("/user")
-    public ResponseEntity<User> deleteUser(
-            @RequestParam("username") String username,
-            @RequestParam("userRoles") String userRoles,
-            @RequestParam("deleteRoles") String deleteRoles) {
-        return new ResponseEntity<>(userService.deleteUser(username, userRoles, deleteRoles), HttpStatus.OK);
-    }
-
     @ExceptionHandler(NoUserFound.class)
     public ResponseEntity<String> noUserFound(NoUserFound message) {
         return new ResponseEntity<>(message.getMessage(), HttpStatus.NOT_FOUND);
@@ -77,11 +61,6 @@ public class LoginController {
 
     @ExceptionHandler(DuplicateUserId.class)
     public ResponseEntity<String> duplicateUser(DuplicateUserId message) {
-        return new ResponseEntity<>(message.getMessage(), HttpStatus.FORBIDDEN);
-    }
-
-    @ExceptionHandler(ForbiddenAction.class)
-    public ResponseEntity<String> unableDeleteUser(ForbiddenAction message) {
         return new ResponseEntity<>(message.getMessage(), HttpStatus.FORBIDDEN);
     }
 }

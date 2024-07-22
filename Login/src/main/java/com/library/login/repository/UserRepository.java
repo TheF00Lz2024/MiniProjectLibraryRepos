@@ -13,8 +13,11 @@ public interface UserRepository extends CrudRepository<User, String> {
     @Query(value = "SELECT * FROM user WHERE username=:username AND password=:password", nativeQuery = true)
     List<User> loginUser(@Param("username") String username, @Param("password") String password);
 
-    @Query(value = "SELECT * FROM user WHERE username=:username AND roles=:roles", nativeQuery = true)
-    List<User> findEmployee(@Param("username") String username, @Param("roles") String roles);
+//    @Query(value = "SELECT * FROM user WHERE username=:username AND roles=:roles", nativeQuery = true)
+//    List<User> findEmployee(@Param("username") String username, @Param("roles") String roles);
+
+    @Query(value = "SELECT * FROM user WHERE username=:username AND roles='Admin'", nativeQuery = true)
+    List<User> checkUserRole(@Param("username") String username);
 
     @Query(value = "SELECT * FROM user WHERE roles = 'Author' OR roles= 'User'", nativeQuery = true)
     List<User> getAllUser();

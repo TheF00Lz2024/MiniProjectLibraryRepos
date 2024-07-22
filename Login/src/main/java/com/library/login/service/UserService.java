@@ -11,5 +11,5 @@ public interface UserService {
 
     List<User> getAllUser();
 
-    User deleteUser(String username, String userRoles, String deleteRoles);
+    User deleteUser(String username);
 }

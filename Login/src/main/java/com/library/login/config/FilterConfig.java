@@ -12,7 +12,7 @@ public class FilterConfig {
 
         FilterRegistrationBean filter = new FilterRegistrationBean();
         filter.setFilter(new JwtAdminFilter());
-        filter.addUrlPatterns("/api/v1/all-user");
+        filter.addUrlPatterns("/api/v1/admin/*");
 
         return filter;
     }
