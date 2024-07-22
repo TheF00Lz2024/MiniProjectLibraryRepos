@@ -15,6 +15,6 @@
 }
 
 .table-container{
-    height: 316px;
+    max-height: 316px;
     overflow: auto;
 }
