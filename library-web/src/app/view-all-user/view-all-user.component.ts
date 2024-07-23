@@ -34,8 +34,10 @@ export class ViewAllUserComponent implements OnInit {
 
   //show loading effect
   showLoading: boolean = false;
-  //
+  //show prompt in overlay for confirmation of deleting of account
   deleteAccount: boolean = false;
+  //store username and dispplay in overlay
+  deleteAccountUsername: string = '';
 
   // set up the column name for the table
   displayedColumns: string[] = ['username', 'roles', 'edit'];
@@ -85,6 +87,8 @@ export class ViewAllUserComponent implements OnInit {
   //button event to delete user account
   deleteUserAccount(username: string) {
     this.showLoading = true;
+    // store the selected username
+    this.deleteAccountUsername = username;
     this.deleteAccount = true;
   }
 
