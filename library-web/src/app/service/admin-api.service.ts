@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { loginAPI, user } from '../model/apiResponse';
+import { formattedUser, loginAPI, user } from '../model/apiResponse';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +15,7 @@ export class AdminApiService {
     return new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`);
   }
 
-  getAllUser(): Observable<user[]>{
+  getAllUser(): Observable<formattedUser[]>{
     return this.httpClient.get<user[]>(`${this.adminAPIUrl}`, { 'headers': this.getHttpHeader()});
   }
 

@@ -18,3 +18,8 @@ export interface user{
 export interface userRole{
     role: string
 }
+
+export interface formattedUser{
+    username: string,
+    roles: string
+}

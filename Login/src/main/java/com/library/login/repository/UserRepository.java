@@ -19,7 +19,6 @@ public interface UserRepository extends CrudRepository<User, String> {
     @Query(value = "SELECT * FROM user WHERE username=:username AND roles='Admin'", nativeQuery = true)
     List<User> checkUserRole(@Param("username") String username);
 
-    @Query(value = "SELECT * FROM user WHERE roles = 'Author' OR roles= 'User'", nativeQuery = true)
+    @Query(value = "SELECT username, NULL as password, roles FROM user where roles = 'User' or roles = 'Author'", nativeQuery = true)
     List<User> getAllUser();
-
 }

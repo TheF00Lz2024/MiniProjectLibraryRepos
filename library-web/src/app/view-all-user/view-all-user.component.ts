@@ -5,10 +5,12 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AdminApiService } from '../service/admin-api.service';
-import { user } from '../model/apiResponse';
+import { formattedUser, user } from '../model/apiResponse';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-view-all-user',
@@ -21,7 +23,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatPaginatorModule,
     MatIconModule,
     CommonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule, 
+    MatButtonModule
   ],
   templateUrl: './view-all-user.component.html',
   styleUrl: './view-all-user.component.css'
@@ -29,12 +33,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class ViewAllUserComponent implements OnInit {
 
   //show loading effect
-  showLoading: boolean = true;
+  showLoading: boolean = false;
+  //
+  deleteAccount: boolean = false;
 
   // set up the column name for the table
   displayedColumns: string[] = ['username', 'roles', 'edit'];
 
-  dataSource!: MatTableDataSource<user>;
+  dataSource!: MatTableDataSource<formattedUser>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -42,7 +48,7 @@ export class ViewAllUserComponent implements OnInit {
   //bind the table render to ng OnInit event
   ngOnInit(): void {
     this.showLoading = true;
-    // this.getDataSource();
+    this.getDataSource();
   }
 
   // filter event to filter by username
@@ -79,6 +85,11 @@ export class ViewAllUserComponent implements OnInit {
   //button event to delete user account
   deleteUserAccount(username: string) {
     this.showLoading = true;
+    this.deleteAccount = true;
+  }
+
+  //button event to confirm the deletion of account
+  confirmDeleteUserAccount(username: string){
     this.adminAPI.deleteUser(username)
       .subscribe({
         next: (data) => {
@@ -94,5 +105,4 @@ export class ViewAllUserComponent implements OnInit {
         }
       })
   }
-
 }
