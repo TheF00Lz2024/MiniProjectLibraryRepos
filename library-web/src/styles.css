@@ -24,3 +24,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         justify-content: center;
     }
 }
+
+.mat-mdc-card-subtitle{
+    text-align: center;
+}
