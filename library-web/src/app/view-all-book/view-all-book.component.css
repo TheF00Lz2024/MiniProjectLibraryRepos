@@ -1,0 +1,20 @@
+.mat-column-isbn {
+    border-right: 1px solid currentColor;
+    text-align: center;
+}
+
+.mat-column-title {
+    border-right: 1px solid currentColor;
+    text-align: center;
+}
+
+.mat-column-authorName {
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+}
+
+.table-container{
+    max-height: 316px;
+    overflow: auto;
+}
