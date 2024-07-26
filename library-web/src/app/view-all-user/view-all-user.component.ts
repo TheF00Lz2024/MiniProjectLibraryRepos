@@ -9,7 +9,7 @@ import { formattedUser, user } from '../model/apiResponse';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -24,7 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     CommonModule,
     MatProgressSpinnerModule,
-    MatCardModule, 
+    MatCardModule,
     MatButtonModule
   ],
   templateUrl: './view-all-user.component.html',
@@ -38,6 +38,8 @@ export class ViewAllUserComponent implements OnInit {
   deleteAccount: boolean = false;
   //store username and dispplay in overlay
   deleteAccountUsername: string = '';
+  //store filter value
+  storeFilterValue: string = '';
 
   // set up the column name for the table
   displayedColumns: string[] = ['username', 'roles', 'edit'];
@@ -50,14 +52,14 @@ export class ViewAllUserComponent implements OnInit {
   //bind the table render to ng OnInit event
   ngOnInit(): void {
     this.showLoading = true;
-    this.getDataSource();
+    this.getDataSource(false);
   }
 
   // filter event to filter by username
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim();
-
+    this.storeFilterValue = filterValue.trim();
+    this.dataSource.filter = this.storeFilterValue;
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -67,7 +69,7 @@ export class ViewAllUserComponent implements OnInit {
   constructor(private adminAPI: AdminApiService) { }
 
   //create a function to call the database and update the datasource
-  getDataSource(){
+  getDataSource(isFromDelete: boolean) {
     // call API service to get all user data
     this.adminAPI.getAllUser()
       .subscribe({
@@ -75,6 +77,10 @@ export class ViewAllUserComponent implements OnInit {
           setTimeout(() => {
             this.dataSource = new MatTableDataSource(data);
             this.dataSource.paginator = this.paginator;
+            if (isFromDelete) {
+              this.dataSource.filter = this.storeFilterValue;
+              alert(`${this.deleteAccountUsername} account has been deleted!`);
+            }
             this.showLoading = false;
           }, 3000)
         }, error: (error) => {
@@ -93,14 +99,14 @@ export class ViewAllUserComponent implements OnInit {
   }
 
   //button event to confirm the deletion of account
-  confirmDeleteUserAccount(username: string){
-    this.adminAPI.deleteUser(username)
+  confirmDeleteUserAccount() {
+    this.deleteAccount = false;
+    this.adminAPI.deleteUser(this.deleteAccountUsername)
       .subscribe({
         next: (data) => {
           setTimeout(() => {
-            alert(`${username} account has been deleted!`);
             // call function to update datasource
-            this.getDataSource();
+            this.getDataSource(true);
           }, 3000);
         }, error: (error) => {
           console.log(error.error.message);

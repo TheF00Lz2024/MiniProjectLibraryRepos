@@ -55,7 +55,7 @@
                     <button mat-stroked-button (click)="showLoading = false; deleteAccount = false">Back</button>
                 </div>
                 <div style="width: 50%; display: flex; align-items: center; justify-content: center;">
-                    <button mat-button style="background-color: red; color: white;">Delete</button>
+                    <button mat-button style="background-color: red; color: white;" (click)="confirmDeleteUserAccount()">Delete</button>
                 </div>
             </div>
         </mat-card>
