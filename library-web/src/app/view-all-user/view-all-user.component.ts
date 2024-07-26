@@ -76,6 +76,7 @@ export class ViewAllUserComponent implements OnInit {
         next: (data) => {
           setTimeout(() => {
             this.dataSource = new MatTableDataSource(data);
+            console.log(this.dataSource);
             this.dataSource.paginator = this.paginator;
             if (isFromDelete) {
               this.dataSource.filter = this.storeFilterValue;

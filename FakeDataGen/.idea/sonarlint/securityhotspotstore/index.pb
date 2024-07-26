@@ -3,12 +3,8 @@ k
 ;fakedata/src/main/java/com/example/fakedata/model/Book.java,6\5\6504f24a8d3da8347344048c960be2e0b66097ee
 @
 fakedata/pom.xml,1\e\1e18f82c2cea285a1ff2002dbbbfcf08ed9b8523
-n
->fakedata/src/main/java/com/example/fakedata/model/BookDTO.java,b\d\bd2e095b0bcf131545e0f38689fc1f38de85a036
 t
 Dfakedata/src/main/java/com/example/fakedata/model/FavouriteBook.java,8\9\899aee34e1fbea6bf43746ec9cce4be334e7b6be
-m
-=fakedata/src/main/java/com/example/fakedata/model/Secret.java,a\4\a48483f45ce4968a3df5c0773ae47ef5578826e8
 k
 ;fakedata/src/main/java/com/example/fakedata/model/User.java,9\0\90d7ebf3c8d90ac218c4a246bb25439d504e99a6
 t

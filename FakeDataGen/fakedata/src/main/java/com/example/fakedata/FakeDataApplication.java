@@ -1,5 +1,6 @@
 package com.example.fakedata;
 
+import com.example.fakedata.service.GenerateBook;
 import com.example.fakedata.service.GenerateUserAccount;
 import com.example.fakedata.service.LoginUser;
 
@@ -17,6 +18,14 @@ public class FakeDataApplication {
             generateUserAccount.createUser();
         } catch (Exception e){
             System.out.println(e.getMessage());
+            try{
+                GenerateBook generateBook = new GenerateBook();
+                generateBook.generateBook();
+            }catch (Exception error){
+                System.out.println(error.getMessage());
+            }
+        } finally {
+            System.out.println("No more data");
         }
 
     }

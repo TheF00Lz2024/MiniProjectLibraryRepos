@@ -21,21 +21,21 @@ public class AuthorController {
     }
 
     //API for adding new book to DB
-    @PostMapping("/author/book")
+    @PostMapping("/author")
     public ResponseEntity<Book> addBook(@RequestBody BookDTO book) {
         Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName());
         return new ResponseEntity<>(bookService.addBook(newBook), HttpStatus.CREATED);
     }
 
     //API for updating book to DB
-    @PutMapping("/author/book")
+    @PutMapping("/author")
     public ResponseEntity<Book> updateBook(@RequestBody BookDTO book) {
         Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName());
         return new ResponseEntity<>(bookService.updateBook(newBook), HttpStatus.OK);
     }
 
     //API for deleting book from DB
-    @DeleteMapping("/author/book")
+    @DeleteMapping("/author")
     public ResponseEntity<Book> deleteBook(@RequestParam("isbn") String isbn) {
         return new ResponseEntity<>(bookService.deleteBook(isbn), HttpStatus.OK);
     }

@@ -1,6 +1,9 @@
 
-]	java:S125	"<This block of commented-out lines of code should be removed.(íù±ùÿÿÿÿ8Ç£ßÍŒ2
-X	java:S125"<This block of commented-out lines of code should be removed.(ğàÀ8È£ßÍŒ2
-L	java:S106"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8É£ßÍŒ2
+ƒ	java:S125
+"<This block of commented-out lines of code should be removed.(íù±ùÿÿÿÿ8øÒ¤ğ2J$587bf068-4cd9-4449-b469-3131f54d2049
+~	java:S125"<This block of commented-out lines of code should be removed.(ğàÀ8øÒ¤ğ2J$91bb3d4d-798b-4b99-ab34-c8d048b3b726
+r	java:S106"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8ùÒ¤ğ2J$3a65bf07-39c0-48eb-a382-310f11ab5f9a
+m	java:S106"+Replace this use of System.out by a logger.(ÉĞëš8üÒ¤ğ2J$443fb8e3-448c-46b0-a4b4-5b4dad8c99a1
+l	java:S106"+Replace this use of System.out by a logger.(øŠí:8Ğ–¥ğ2J$a7a279fa-99c1-4cd6-9cc7-6161bbf33c03
 e
-java:S1128"CRemove this unused import 'com.example.fakedata.service.LoginUser'.(¬°Îıÿÿÿÿ8É£ßÍŒ2
+java:S1128"CRemove this unused import 'com.example.fakedata.service.LoginUser'.(¬°Îıÿÿÿÿ8ïï¥ğ2

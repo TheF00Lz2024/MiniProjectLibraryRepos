@@ -1,13 +1,3 @@
 
-d
-java:S2094	"BRemove this empty class, write its code or make it an "interface".(äŸ•†üÿÿÿÿ8á«ÕÍŒ2
-w
-java:S1128"URemove this unused import 'com.example.fakedata.configuration.FakeDataConfiguration'.(°·¯ðÿÿÿÿÿ8ã«ÕÍŒ2
-^
-java:S1128"<Remove this unused import 'com.example.fakedata.model.User'.(­·¡‚ÿÿÿÿÿ8ã«ÕÍŒ2
-‚
-java:S1128"fRemove this unused import 'org.springframework.context.annotation.AnnotationConfigApplicationContext'.(€¡¹;8ã«ÕÍŒ2
-f
-java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ8ã«ÕÍŒ2
-j
-java:S1128"HRemove this unused import 'org.springframework.web.client.RestTemplate'.(Îö¼Þûÿÿÿÿ8ã«ÕÍŒ2
+m	java:S106$"+Replace this use of System.out by a logger.(œ›êì8¨·œðŽ2J$394c17f5-a1f0-4a56-bf56-16a39f2b848f
+r	java:S106%"+Replace this use of System.out by a logger.(®ýáëûÿÿÿÿ8¨·œðŽ2J$0128404d-ad2f-45ef-9c2b-709507a86d3b

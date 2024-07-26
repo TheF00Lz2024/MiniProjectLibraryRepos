@@ -24,3 +24,13 @@
 2024-07-26T10:22:31.295+08:00  WARN 16320 --- [Login] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
 2024-07-26T10:22:31.329+08:00  INFO 16320 --- [Login] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
 2024-07-26T10:22:31.340+08:00  INFO 16320 --- [Login] [restartedMain] com.library.login.LoginApplication       : Started LoginApplication in 4.44 seconds (process running for 4.783)
+2024-07-26T10:26:21.067+08:00  INFO 16320 --- [Login] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-26T10:26:21.067+08:00  INFO 16320 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-26T10:26:21.069+08:00  INFO 16320 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-07-26T12:31:00.327+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.NoUserFound: {"message":"Incorrect username or password!"}]
+2024-07-26T12:34:46.630+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-26T12:37:55.707+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-26T12:41:47.205+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-26T12:44:26.673+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-26T15:53:47.392+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-07-26T15:55:18.174+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]

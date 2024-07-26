@@ -11,7 +11,7 @@ public class GenerateUserAccount {
     public void createUser() {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(FakeDataConfiguration.class);
         RestTemplate restTemplate = new RestTemplate();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 20000; i++) {
             User newUser = applicationContext.getBean(User.class);
             newUser.setUsername("NewAuthor"+i+"@gmail.com");
             newUser.setPassword("I@NewAuthor"+i);
@@ -21,7 +21,7 @@ public class GenerateUserAccount {
             System.out.println(result);
         }
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 20000; i++) {
             User newUser = applicationContext.getBean(User.class);
             newUser.setUsername("NewUser"+i+"@gmail.com");
             newUser.setPassword("I@NewUser"+i);
