@@ -1,0 +1,36 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+    <div class="container" style="width: 80%; background-color: bisque;">
+        <h2 style="text-align: center;">
+            Add Book
+        </h2>
+        <form style=" justify-content: center; align-items: center;" [formGroup]="userSignUpForm">
+            <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
+                <mat-label>Username</mat-label>
+                <input matInput type="email" [formControl]="usernameControl" [errorStateMatcher]="matcher"
+                    placeholder="Example@example.com" />
+                @if (usernameControl.hasError('required')) {
+                <mat-error>Email is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
+                <mat-label>Password</mat-label>
+                <input matInput [formControl]="passwordControl" [errorStateMatcher]="matcher" />
+                @if (passwordControl.hasError('required')) {
+                <mat-error>Password is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput
+                    [formControl]="confirmPasswordControl" [errorStateMatcher]="matcher" />
+                @if (confirmPasswordControl.hasError('required')) {
+                <mat-error>Confirm Password is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+        </form>
+    </div>
+</div>
+
+<div id="overlay" *ngIf="showLoading">
+    <mat-spinner></mat-spinner>
+</div>

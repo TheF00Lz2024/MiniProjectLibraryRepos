@@ -2,12 +2,14 @@ package com.example.mongodb.controller;
 
 import com.example.mongodb.exception.NoBookFound;
 import com.example.mongodb.model.Book;
+import com.example.mongodb.model.BookDTO;
 import com.example.mongodb.service.BookService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -21,11 +23,18 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    @PostMapping("/file")
+    public ResponseEntity<Book> uploadImage(@RequestBody BookDTO book){
+        Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName(), book.getImgData());
+        return new ResponseEntity<>(bookService.addBook(newBook), HttpStatus.OK);
+    }
+
     @GetMapping("/testAPI")
     public ResponseEntity<String> testAPI() {
         return new ResponseEntity<>("{\"message\":\"Hello World!\"}", HttpStatus.OK);
     }
 
+    // API for getting user role from JWT claims
     @GetMapping("/book/user/role")
     public ResponseEntity<String> getUserRole(HttpServletRequest httpServletRequest){
         String claim = httpServletRequest.getAttribute("claim").toString();

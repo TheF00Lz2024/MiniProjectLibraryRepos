@@ -30,7 +30,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    MatProgressSpinnerModule],
+    MatProgressSpinnerModule
+  ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })

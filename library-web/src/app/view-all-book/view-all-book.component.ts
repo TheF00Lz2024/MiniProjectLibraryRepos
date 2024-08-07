@@ -52,7 +52,10 @@ export class ViewAllBookComponent {
   // filter event to filter by username
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue;
+    this.dataSource.filterPredicate = function (data, filter: string): boolean {
+      return data.title.includes(filter);
+    };
+    this.dataSource.filter = filterValue.trim();
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }

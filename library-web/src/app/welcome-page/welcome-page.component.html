@@ -1,21 +1,31 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav">
+        <!-- for all user -->
         <div class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
             true}">
             <button routerLink="/view-all-book" mat-button style="text-align: center; color: blue; width: 100%;" type="button">
                 View All Book
             </button>
         </div>
+        <!-- for admin role -->
         <div *ngIf="userRole == 'Admin'" class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
             true}">
             <button routerLink="/view-all-user" mat-button style="text-align: center; color: blue; width: 100%;" type="button">
                 View All User
             </button>
         </div>
+        <!-- for admin role -->
         <div *ngIf="userRole == 'Admin'" class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
             true}">
             <button routerLink="/add-user" mat-button style="text-align: center; color: blue; width: 100%;" type="button">
-                Add User
+                Add Author
+            </button>
+        </div>
+        <!-- for author role -->
+        <div *ngIf="userRole == 'Author'" class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}">
+            <button routerLink="/create-book" mat-button style="text-align: center; color: blue; width: 100%;" type="button">
+                Add Book
             </button>
         </div>
         <div class="routerLinkItem" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:

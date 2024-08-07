@@ -1,36 +1,29 @@
-2024-07-26T10:22:27.273+08:00  INFO 16320 --- [Login] [restartedMain] com.library.login.LoginApplication       : Starting LoginApplication using Java 22.0.1 with PID 16320 (C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\Login\target\classes started by cyh20 in C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\Login)
-2024-07-26T10:22:27.280+08:00  INFO 16320 --- [Login] [restartedMain] com.library.login.LoginApplication       : No active profile set, falling back to 1 default profile: "default"
-2024-07-26T10:22:27.332+08:00  INFO 16320 --- [Login] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-07-26T10:22:27.333+08:00  INFO 16320 --- [Login] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-07-26T10:22:27.930+08:00  INFO 16320 --- [Login] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-07-26T10:22:27.980+08:00  INFO 16320 --- [Login] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interface.
-2024-07-26T10:22:28.619+08:00  INFO 16320 --- [Login] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
-2024-07-26T10:22:28.638+08:00  INFO 16320 --- [Login] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-07-26T10:22:28.639+08:00  INFO 16320 --- [Login] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-07-26T10:22:28.690+08:00  INFO 16320 --- [Login] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-07-26T10:22:28.691+08:00  INFO 16320 --- [Login] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1358 ms
-2024-07-26T10:22:29.005+08:00  INFO 16320 --- [Login] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-07-26T10:22:29.080+08:00  INFO 16320 --- [Login] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-07-26T10:22:29.116+08:00  INFO 16320 --- [Login] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-07-26T10:22:29.355+08:00  INFO 16320 --- [Login] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-07-26T10:22:29.381+08:00  INFO 16320 --- [Login] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-07-26T10:22:29.701+08:00  INFO 16320 --- [Login] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5344f965
-2024-07-26T10:22:29.704+08:00  INFO 16320 --- [Login] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-07-26T10:22:29.753+08:00  WARN 16320 --- [Login] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-07-26T10:22:30.532+08:00  INFO 16320 --- [Login] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-07-26T10:22:30.596+08:00  INFO 16320 --- [Login] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-07-26T10:22:30.835+08:00  INFO 16320 --- [Login] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-07-26T10:22:30.903+08:00  WARN 16320 --- [Login] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-07-26T10:22:31.295+08:00  WARN 16320 --- [Login] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2024-07-26T10:22:31.329+08:00  INFO 16320 --- [Login] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
-2024-07-26T10:22:31.340+08:00  INFO 16320 --- [Login] [restartedMain] com.library.login.LoginApplication       : Started LoginApplication in 4.44 seconds (process running for 4.783)
-2024-07-26T10:26:21.067+08:00  INFO 16320 --- [Login] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-07-26T10:26:21.067+08:00  INFO 16320 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-07-26T10:26:21.069+08:00  INFO 16320 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-07-26T12:31:00.327+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.NoUserFound: {"message":"Incorrect username or password!"}]
-2024-07-26T12:34:46.630+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
-2024-07-26T12:37:55.707+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
-2024-07-26T12:41:47.205+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
-2024-07-26T12:44:26.673+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
-2024-07-26T15:53:47.392+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
-2024-07-26T15:55:18.174+08:00  WARN 16320 --- [Login] [http-nio-8081-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.DuplicateUserId: {"message":"Username taken!"}]
+2024-08-07T10:29:31.863+08:00  INFO 49328 --- [Login] [restartedMain] com.library.login.LoginApplication       : Starting LoginApplication using Java 22.0.1 with PID 49328 (C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\Login\target\classes started by cyh20 in C:\Users\cyh20\Documents\MiniProject\MiniProjectLibraryRepos\Login)
+2024-08-07T10:29:31.870+08:00  INFO 49328 --- [Login] [restartedMain] com.library.login.LoginApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-08-07T10:29:31.917+08:00  INFO 49328 --- [Login] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-07T10:29:31.918+08:00  INFO 49328 --- [Login] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-07T10:29:32.483+08:00  INFO 49328 --- [Login] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-07T10:29:32.532+08:00  INFO 49328 --- [Login] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 1 JPA repository interface.
+2024-08-07T10:29:33.066+08:00  INFO 49328 --- [Login] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-08-07T10:29:33.081+08:00  INFO 49328 --- [Login] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-07T10:29:33.082+08:00  INFO 49328 --- [Login] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-08-07T10:29:33.121+08:00  INFO 49328 --- [Login] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-07T10:29:33.121+08:00  INFO 49328 --- [Login] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1203 ms
+2024-08-07T10:29:33.310+08:00  INFO 49328 --- [Login] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-07T10:29:33.366+08:00  INFO 49328 --- [Login] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-08-07T10:29:33.393+08:00  INFO 49328 --- [Login] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-08-07T10:29:33.575+08:00  INFO 49328 --- [Login] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-07T10:29:33.595+08:00  INFO 49328 --- [Login] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-08-07T10:29:33.835+08:00  INFO 49328 --- [Login] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4972d98d
+2024-08-07T10:29:33.836+08:00  INFO 49328 --- [Login] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-08-07T10:29:33.879+08:00  WARN 49328 --- [Login] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-07T10:29:34.432+08:00  INFO 49328 --- [Login] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-07T10:29:34.484+08:00  INFO 49328 --- [Login] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-07T10:29:34.674+08:00  INFO 49328 --- [Login] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-08-07T10:29:34.725+08:00  WARN 49328 --- [Login] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-07T10:29:35.042+08:00  WARN 49328 --- [Login] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2024-08-07T10:29:35.071+08:00  INFO 49328 --- [Login] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-08-07T10:29:35.079+08:00  INFO 49328 --- [Login] [restartedMain] com.library.login.LoginApplication       : Started LoginApplication in 3.572 seconds (process running for 3.91)
+2024-08-07T10:29:42.077+08:00  INFO 49328 --- [Login] [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-07T10:29:42.077+08:00  INFO 49328 --- [Login] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-07T10:29:42.078+08:00  INFO 49328 --- [Login] [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms

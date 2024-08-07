@@ -23,14 +23,14 @@ public class AuthorController {
     //API for adding new book to DB
     @PostMapping("/author")
     public ResponseEntity<Book> addBook(@RequestBody BookDTO book) {
-        Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName());
+        Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName(), book.getImgData());
         return new ResponseEntity<>(bookService.addBook(newBook), HttpStatus.CREATED);
     }
 
     //API for updating book to DB
     @PutMapping("/author")
     public ResponseEntity<Book> updateBook(@RequestBody BookDTO book) {
-        Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName());
+        Book newBook = new Book(book.getIsbn(), book.getTitle(), book.getAuthorName(), book.getImgData());
         return new ResponseEntity<>(bookService.updateBook(newBook), HttpStatus.OK);
     }
 

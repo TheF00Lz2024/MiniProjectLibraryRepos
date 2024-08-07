@@ -59,6 +59,9 @@ export class ViewAllUserComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.storeFilterValue = filterValue.trim();
+    this.dataSource.filterPredicate = function (data, filter: string): boolean {
+      return data.username.includes(filter);
+    };
     this.dataSource.filter = this.storeFilterValue;
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
