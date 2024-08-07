@@ -7,6 +7,7 @@ export interface bookData{
     isbn: string;
     title: string;
     authorName: string;
+    imgData: string;
 }
 
 export interface user{

@@ -3,31 +3,42 @@
         <h2 style="text-align: center;">
             Add Book
         </h2>
-        <form style=" justify-content: center; align-items: center;" [formGroup]="userSignUpForm">
+        <form style=" justify-content: center; align-items: center;" [formGroup]="authorAddBook">
             <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
-                <mat-label>Username</mat-label>
-                <input matInput type="email" [formControl]="usernameControl" [errorStateMatcher]="matcher"
-                    placeholder="Example@example.com" />
-                @if (usernameControl.hasError('required')) {
-                <mat-error>Email is <strong>required</strong></mat-error>
+                <mat-label>ISBN</mat-label>
+                <input matInput type="email" [formControl]="isbnControl" [errorStateMatcher]="matcher"
+                    placeholder="978-3-16-148410-0" />
+                @if (isbnControl.hasError('pattern')) {
+                <mat-error>ISBN <strong>invalid!</strong>Example: 978-3-16-148410-0</mat-error>
+                }
+                @if (isbnControl.hasError('required')) {
+                <mat-error>ISBN is <strong>required</strong></mat-error>
                 }
             </mat-form-field>
             <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
-                <mat-label>Password</mat-label>
-                <input matInput [formControl]="passwordControl" [errorStateMatcher]="matcher" />
-                @if (passwordControl.hasError('required')) {
-                <mat-error>Password is <strong>required</strong></mat-error>
+                <mat-label>Title</mat-label>
+                <input matInput [formControl]="titleControl" [errorStateMatcher]="matcher" />
+                @if (titleControl.hasError('required')) {
+                <mat-error>Title is <strong>required</strong></mat-error>
                 }
             </mat-form-field>
             <mat-form-field style="width: 80%; padding-left: 10%; padding-right: 10%;">
-                <mat-label>Confirm Password</mat-label>
-                <input matInput
-                    [formControl]="confirmPasswordControl" [errorStateMatcher]="matcher" />
-                @if (confirmPasswordControl.hasError('required')) {
-                <mat-error>Confirm Password is <strong>required</strong></mat-error>
+                <mat-label>Author Name</mat-label>
+                <input matInput [formControl]="authorNameControl" [errorStateMatcher]="matcher" />
+                @if (authorNameControl.hasError('required')) {
+                <mat-error>Author Name is <strong>required</strong></mat-error>
                 }
             </mat-form-field>
+            <div style="width: 80%; padding-left: 10%; padding-right: 10%;">
+                <input type="file" accept="image/*" (change)="selectBookImage($event)"/>
+            </div>
         </form>
+        <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
+            <button mat-flat-button color="primary" style="text-align: center;" type="button" (click)="uploadBook()"
+                [disabled]="!authorAddBook.valid || !bookImageSelected">
+                Add Book
+            </button>
+        </div>
     </div>
 </div>
 
