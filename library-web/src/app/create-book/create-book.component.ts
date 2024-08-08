@@ -48,6 +48,9 @@ export class CreateBookComponent {
   // store created book data
   createdBook = {} as bookData;
 
+  // create datasource to show image selected
+  dataSource = [] as any;
+
   // create form group via reactive form
   authorAddBook: FormGroup;
 
@@ -80,7 +83,7 @@ export class CreateBookComponent {
   selectBookImage(event: any){
     this.selectedImageNames = [];
     this.selectedImage = event.target.files;
-    if(this.selectedImage != undefined){
+    if(this.selectedImage != undefined && this.selectedImage.length!=0){
       this.bookImageSelected = true;
       const reader = new FileReader();
       reader.onload = (e: any) => {
@@ -90,6 +93,14 @@ export class CreateBookComponent {
           'authorName': `${this.authorNameControl.value}`,
           'imgData': `${e.target.result}`
         };
+        console.log(this.selectedImage![0].size);
+        let bookImage = {
+          img: `${e.target.result}`,
+          imgName: `${this.selectedImage![0].name}`,
+          imgSize: `${((this.selectedImage![0].size / (1024*1024)) * 100 | 0) / 100}MB`
+        }
+        this.dataSource.push(bookImage);
+        console.log(this.dataSource);
         this.imagePreview.push(e.target.result);
       };
       reader.readAsDataURL(this.selectedImage[0]);

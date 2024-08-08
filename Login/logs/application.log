@@ -24,3 +24,10 @@
 2024-08-08T10:51:13.569+08:00  WARN 26064 --- [Login] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
 2024-08-08T10:51:13.607+08:00  INFO 26064 --- [Login] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
 2024-08-08T10:51:13.614+08:00  INFO 26064 --- [Login] [restartedMain] com.library.login.LoginApplication       : Started LoginApplication in 3.882 seconds (process running for 4.283)
+2024-08-08T10:59:28.493+08:00  INFO 26064 --- [Login] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-08T10:59:28.494+08:00  INFO 26064 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-08T10:59:28.497+08:00  INFO 26064 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-08-08T17:30:24.091+08:00  WARN 26064 --- [Login] [http-nio-8081-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.NoUserFound: {"message":"Incorrect username or password!"}]
+2024-08-08T18:11:09.957+08:00  INFO 26064 --- [Login] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-08T18:11:09.978+08:00  INFO 26064 --- [Login] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-08-08T18:11:09.987+08:00  INFO 26064 --- [Login] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

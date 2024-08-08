@@ -32,6 +32,9 @@
             <div style="width: 80%; padding-left: 10%; padding-right: 10%;">
                 <input type="file" accept="image/*" (change)="selectBookImage($event)" #uploadBookImage/>
             </div>
+            <div style="width: 80%; padding-left: 10%; padding-right: 10%;" *ngIf="bookImageSelected">
+
+            </div>
         </form>
         <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
             <button mat-flat-button color="primary" style="text-align: center;" type="button" (click)="uploadBook()"
