@@ -30,7 +30,7 @@
                 }
             </mat-form-field>
             <div style="width: 80%; padding-left: 10%; padding-right: 10%;">
-                <input type="file" accept="image/*" (change)="selectBookImage($event)"/>
+                <input type="file" accept="image/*" (change)="selectBookImage($event)" #uploadBookImage/>
             </div>
         </form>
         <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">

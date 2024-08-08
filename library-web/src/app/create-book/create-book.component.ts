@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -48,9 +48,12 @@ export class CreateBookComponent {
   // store created book data
   createdBook = {} as bookData;
 
-
   // create form group via reactive form
   authorAddBook: FormGroup;
+
+  // test reset for file
+  @ViewChild('uploadBookImage')
+  fileValue!: ElementRef;
 
   get isbnControl(): FormControl {
     return this.authorAddBook.get('isbn') as FormControl;
@@ -100,7 +103,14 @@ export class CreateBookComponent {
     .subscribe({
       next:(data) => {
         setTimeout(() => {
-          alert('Img uploaded successfully!')
+          alert(`Book uploaded successfully!\n`+
+            `ISBN: ${this.isbnControl.value}\n`+
+            `Title: ${this.titleControl.value}\n`+
+            `Author Name: ${this.authorNameControl.value}`);
+          this.isbnControl.reset();
+          this.titleControl.reset();
+          this.authorNameControl.reset();
+          this.fileValue.nativeElement.value = '';
           this.showLoading = false;
         }, 3000);
       }, error:(error) => {
