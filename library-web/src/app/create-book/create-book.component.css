@@ -1,0 +1,15 @@
+.mat-column-img {
+    border-right: 1px solid currentColor;
+    text-align: center;
+}
+
+.mat-column-imgName {
+    border-right: 1px solid currentColor;
+    text-align: center;
+}
+
+.mat-column-imgSize {
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+}

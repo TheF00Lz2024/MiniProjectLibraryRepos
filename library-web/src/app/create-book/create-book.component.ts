@@ -9,6 +9,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthorApiService } from '../service/author-api.service';
 import { bookData } from '../model/apiResponse';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { bookImgDetail } from '../model/webApplication';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -28,7 +30,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   templateUrl: './create-book.component.html',
   styleUrl: './create-book.component.css'
@@ -47,7 +50,10 @@ export class CreateBookComponent {
   createdBook = {} as bookData;
 
   // create datasource to show image selected
-  dataSource = [] as any;
+  dataSource!: MatTableDataSource<bookImgDetail>;
+
+  // columns for the table
+  displayedColumns: string[] = ['img', 'imgName', 'imgSize'];
 
   // create form group via reactive form
   authorAddBook: FormGroup;
@@ -79,11 +85,8 @@ export class CreateBookComponent {
 
   //event for selection of book image
   selectBookImage(event: any){
-    console.log(this.fileValue);
     // per upload create make datasource empty
-    this.dataSource = [];
     this.selectedImage = event.target.files;
-    console.log(this.selectedImage);
     if(this.selectedImage != undefined && this.selectedImage.length!=0){
       // check for valid file type (accept only jpeg / png)
       if(this.selectedImage[0].type == "image/png" || this.selectedImage[0].type == "image/jpeg"){
@@ -100,8 +103,10 @@ export class CreateBookComponent {
             img: `${e.target.result}`,
             imgName: `${this.selectedImage![0].name}`,
             imgSize: `${((this.selectedImage![0].size / (1024*1024)) * 100 | 0) / 100}MB`
-          }
-          this.dataSource.push(bookImage);
+          } as bookImgDetail;
+          let array: bookImgDetail[] = [];
+          array.push(bookImage);
+          this.dataSource = new MatTableDataSource(array);
         };
         reader.readAsDataURL(this.selectedImage[0]);
       }
@@ -109,7 +114,8 @@ export class CreateBookComponent {
       else{
         this.validBookImage = false;
       }
-
+    } else{
+      this.validBookImage = false;
     }
   }
 
@@ -132,6 +138,9 @@ export class CreateBookComponent {
           this.selectedImage = undefined;
           // set the check back to false
           this.validBookImage = false;
+          // reset the data for the img table
+          let array: bookImgDetail[] = [];
+          this.dataSource = new MatTableDataSource(array);
           this.showLoading = false;
         }, 3000);
       }, error:(error) => {

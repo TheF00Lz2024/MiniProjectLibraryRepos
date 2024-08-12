@@ -27,3 +27,4 @@
 2024-08-12T10:37:19.303+08:00  INFO 4620 --- [Login] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-08-12T10:37:19.304+08:00  INFO 4620 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-08-12T10:37:19.305+08:00  INFO 4620 --- [Login] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-12T15:21:50.900+08:00  WARN 4620 --- [Login] [http-nio-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.library.login.exception.NoUserFound: {"message":"Incorrect username or password!"}]
