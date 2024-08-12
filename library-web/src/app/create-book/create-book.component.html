@@ -29,16 +29,29 @@
                 <mat-error>Author Name is <strong>required</strong></mat-error>
                 }
             </mat-form-field>
-            <div style="width: 80%; padding-left: 10%; padding-right: 10%;">
-                <input type="file" accept="image/*" (change)="selectBookImage($event)" #uploadBookImage/>
+            <div class="mat-mdc-form-field" style="width: 80%; padding-left: 10%; padding-right: 10%;">
+                <input type="file" accept="image/png,image/jpeg" (change)="selectBookImage($event)" #uploadBookImage />
+                <div class="mat-mdc-form-field-subscript-wrapper">
+                    <div class="mat-mdc-form-field-error-wrapper" style="position: initial;">
+                        <!-- show this error if img was selected and chosen and deslected -->
+                        @if (this.selectedImage != undefined && this.selectedImage.length==0) {
+                            <mat-error>Book cover image is <strong>required</strong></mat-error>
+                        }
+                        <!-- show this error if the file submitted is not img/png / jpeg -->
+                        @if (this.selectedImage != undefined && this.selectedImage.length!=0 && !validBookImage) {
+                            <mat-error>Only accept<strong>.png or .jpeg</strong> file</mat-error>
+                        }
+                    </div>
+                </div>
             </div>
-            <div style="width: 80%; padding-left: 10%; padding-right: 10%;" *ngIf="bookImageSelected">
+            <!-- show table for book image preview -->
+            <div style="width: 80%; padding-left: 10%; padding-right: 10%;" *ngIf="validBookImage">
 
             </div>
         </form>
         <div style="display: grid; justify-content: center; width: 100%; padding: 10px;">
             <button mat-flat-button color="primary" style="text-align: center;" type="button" (click)="uploadBook()"
-                [disabled]="!authorAddBook.valid || !bookImageSelected">
+                [disabled]="!authorAddBook.valid || !validBookImage">
                 Add Book
             </button>
         </div>

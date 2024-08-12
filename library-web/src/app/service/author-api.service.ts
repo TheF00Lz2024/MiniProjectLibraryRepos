@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { bookData } from '../model/apiResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class AuthorApiService {
     return new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`);
   }
   
-  uploadBook(data: any): Observable<any> {
-    return this.httpClient.post(`${this.authorAPIUrl}`,data, { 'headers': this.getHttpHeader() });
+  uploadBook(data: bookData): Observable<bookData> {
+    const body = JSON.stringify(data);
+    return this.httpClient.post<bookData>(`${this.authorAPIUrl}`, body, { 'headers': this.getHttpHeader().append( 'content-type', 'application/json') });
   }
 }
