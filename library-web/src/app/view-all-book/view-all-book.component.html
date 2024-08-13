@@ -1,13 +1,16 @@
 <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
     <div class="container" style="width: 80%; background-color: bisque;">
         <mat-form-field style="width: 100%;">
-            <mat-label>Filter</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Little Red Ridding Hood" #input>
+            <mat-label>Filter by</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder={{plcaeHolder}} #input>
         </mat-form-field>
-
-        <div class="table-container mat-elevation-z8">
-            <table mat-table [dataSource]="dataSource" matSort>
-
+        <mat-tab-group animationDuration="500ms" style="background-color: white;" (selectedTabChange)="tabEvent($event)">
+            <mat-tab label="ISBN"/>
+            <mat-tab label="Title"/>
+            <mat-tab label="Author"/>
+        </mat-tab-group>
+        <div>
+            <table mat-table [dataSource]="dataSource" class="table-container mat-elevation-z8" matSort>
                 <ng-container matColumnDef="isbn" sticky>
                     <th mat-header-cell *matHeaderCellDef mat-header-cell class="centered-title"> ISBN </th>
                     <td mat-cell *matCellDef="let row"> {{row.isbn}} </td>
@@ -29,7 +32,7 @@
                 <!-- Row shown when there is no matching data. -->
                 <tr class="mat-row" *matNoDataRow>
                     <td class="mat-cell" colspan="4" *ngIf="dataSource.data.length==0">There is no book to show</td>
-                    <td class="mat-cell" colspan="4" *ngIf="dataSource.data.length>0">No book title matching the filter "{{input.value}}"</td>
+                    <td class="mat-cell" colspan="4" *ngIf="dataSource.data.length>0">No book {{filterSelection}} matching the filter "{{input.value}}"</td>
                 </tr>
             </table>
         </div>
