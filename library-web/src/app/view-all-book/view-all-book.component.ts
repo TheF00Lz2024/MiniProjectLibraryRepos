@@ -11,7 +11,8 @@ import { MatSortModule, MatSort } from '@angular/material/sort';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { bookData } from '../model/apiResponse';
 import { LibraryApiService } from '../service/library-api.service';
-import {MatTabChangeEvent, MatTabsModule} from '@angular/material/tabs';
+import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
+
 
 @Component({
   selector: 'app-view-all-book',
@@ -27,7 +28,7 @@ import {MatTabChangeEvent, MatTabsModule} from '@angular/material/tabs';
     MatProgressSpinnerModule,
     MatCardModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   templateUrl: './view-all-book.component.html',
   styleUrl: './view-all-book.component.css'
@@ -46,6 +47,12 @@ export class ViewAllBookComponent {
   // store filter selection
   filterSelection: string = 'isbn';
 
+  // show book detail
+  showBookDetail: boolean = false;
+
+  // store get book detail
+  bookDetail = {} as bookData;
+
   dataSource!: MatTableDataSource<bookData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -63,15 +70,15 @@ export class ViewAllBookComponent {
   // filter event to filter by username
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    if(this.filterSelection == 'isbn'){
+    if (this.filterSelection == 'isbn') {
       this.dataSource.filterPredicate = function (data, filter: string): boolean {
         return data.isbn.includes(filter);
       };
-    }else if(this.filterSelection == 'title'){
+    } else if (this.filterSelection == 'title') {
       this.dataSource.filterPredicate = function (data, filter: string): boolean {
         return data.title.includes(filter);
       };
-    }else{
+    } else {
       this.dataSource.filterPredicate = function (data, filter: string): boolean {
         return data.authorName.includes(filter);
       };
@@ -83,14 +90,14 @@ export class ViewAllBookComponent {
   }
 
   // listen to filter tab event
-  tabEvent(event: MatTabChangeEvent){
-    if(event.index == 0){
+  tabEvent(event: MatTabChangeEvent) {
+    if (event.index == 0) {
       this.filterSelection = 'isbn';
       this.plcaeHolder = '978-3-16-148410-0';
-    } else if(event.index == 1){
+    } else if (event.index == 1) {
       this.filterSelection = 'title';
       this.plcaeHolder = 'Little Red Riding Hood';
-    } else{
+    } else {
       this.filterSelection = 'author name';
       this.plcaeHolder = 'John Doe';
     }
@@ -114,6 +121,24 @@ export class ViewAllBookComponent {
             this.dataSource = new MatTableDataSource(data);
             this.dataSource.paginator = this.paginator;
             this.showLoading = false;
+          }, 3000)
+        }, error: (error) => {
+          console.log(error.error.message);
+          this.showLoading = false;
+        }
+      })
+  }
+
+  // button event to get book detail
+  getBookDetail(data: string) {
+    this.showLoading = true;
+    this.libraryService.getBookDetail(data)
+      .subscribe({
+        next: (data) => {
+          setTimeout(() => {
+            this.showLoading = false;
+            this.showBookDetail = true;
+            this.bookDetail = data;
           }, 3000)
         }, error: (error) => {
           console.log(error.error.message);

@@ -4,16 +4,24 @@
             <mat-label>Filter by</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder={{plcaeHolder}} #input>
         </mat-form-field>
-        <mat-tab-group animationDuration="500ms" style="background-color: white;" (selectedTabChange)="tabEvent($event)">
-            <mat-tab label="ISBN"/>
-            <mat-tab label="Title"/>
-            <mat-tab label="Author"/>
+        <mat-tab-group animationDuration="500ms" style="background-color: white;"
+            (selectedTabChange)="tabEvent($event)">
+            <mat-tab label="ISBN" />
+            <mat-tab label="Title" />
+            <mat-tab label="Author" />
         </mat-tab-group>
         <div>
             <table mat-table [dataSource]="dataSource" class="table-container mat-elevation-z8" matSort>
                 <ng-container matColumnDef="isbn" sticky>
                     <th mat-header-cell *matHeaderCellDef mat-header-cell class="centered-title"> ISBN </th>
-                    <td mat-cell *matCellDef="let row"> {{row.isbn}} </td>
+                    <td mat-cell *matCellDef="let row">
+                        <button mat-button style="text-align: center; color: blue;" (click)="getBookDetail(row.isbn)"
+                            type="button">
+                            <u>
+                                {{row.isbn}}
+                            </u>
+                        </button>
+                    </td>
                 </ng-container>
 
                 <ng-container matColumnDef="title">
@@ -32,7 +40,8 @@
                 <!-- Row shown when there is no matching data. -->
                 <tr class="mat-row" *matNoDataRow>
                     <td class="mat-cell" colspan="4" *ngIf="dataSource.data.length==0">There is no book to show</td>
-                    <td class="mat-cell" colspan="4" *ngIf="dataSource.data.length>0">No book {{filterSelection}} matching the filter "{{input.value}}"</td>
+                    <td class="mat-cell" colspan="4" *ngIf="dataSource.data.length>0">No book {{filterSelection}}
+                        matching the filter "{{input.value}}"</td>
                 </tr>
             </table>
         </div>
@@ -41,5 +50,28 @@
 </div>
 
 <div id="overlay" *ngIf="showLoading">
+    <!-- show spinner for loading -->
     <mat-spinner></mat-spinner>
+</div>
+
+<!-- for showing book detail -->
+<div id="overlay" *ngIf="showBookDetail">
+    <!-- show book detail after selection -->
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title>{{bookDetail.title}}</mat-card-title>
+                <img mat-card-lg-image src={{bookDetail.imgData}}>
+            </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+            ISBN: {{bookDetail.isbn}}
+        </mat-card-content>
+        <mat-card-content>
+            Author Name: {{bookDetail.authorName}}
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="showBookDetail = false">Back</button>
+          </mat-card-actions>
+    </mat-card>
 </div>

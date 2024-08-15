@@ -46,7 +46,7 @@ public class BookController {
     // API for getting specific book by isbn
     @GetMapping("/book/{isbn}")
     public ResponseEntity<Book> getBook(@PathVariable("isbn") String isbn) {
-        return new ResponseEntity<>(bookService.getBook(isbn), HttpStatus.FOUND);
+        return new ResponseEntity<>(bookService.getBook(isbn), HttpStatus.OK);
     }
 
     //API for getting all the book from DB

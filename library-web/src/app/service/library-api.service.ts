@@ -23,4 +23,8 @@ export class LibraryApiService {
   getAllBook(): Observable<bookData[]>{
     return this.httpClient.get<bookData[]>(`${this.loginAPIUrl}`,{'headers': this.getHttpHeader()});
   }
+
+  getBookDetail(isbn: string): Observable<bookData>{
+    return this.httpClient.get<bookData>(`${this.loginAPIUrl}/${isbn}`,{'headers': this.getHttpHeader()});
+  }
 }
